@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eFast VTC - Service Premium 100% Électrique | Côte d'Azur</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts - Luxueux -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <!-- Custom Luxury Styles -->
+    <style>
+        :root {
+            --luxury-gold: linear-gradient(135deg, #D4AF37, #FFD700, #F4E4A1);
+            --luxury-dark: linear-gradient(135deg, #0a0a0a, #1a1a1a, #2a2a2a);
+            --eco-gradient: linear-gradient(135deg, #4CAF50, #8BC34A, #66BB6A);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow-luxury: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            --shadow-gold: 0 20px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Particles Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* Luxury Header with Glassmorphism */
+        .navbar-luxury {
+            background: rgba(0, 0, 0, 0.9) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid;
+            border-image: var(--luxury-gold) 1;
+            box-shadow: var(--shadow-luxury);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-luxury.scrolled {
+            background: rgba(0, 0, 0, 0.95) !important;
+            backdrop-filter: blur(30px);
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--luxury-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--luxury-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #D4AF37 !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-link:hover::before {
+            width: 100%;
+        }
+
+        .btn-luxury {
+            background: var(--luxury-gold);
+            border: none;
+            color: #000;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 12px 30px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-luxury::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-luxury:hover::before {
+            left: 100%;
+        }
+
+        .btn-luxury:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.4);
+            color: #000;
+        }
+
+        /* Hero Section - FOND SIMPLE SANS IMAGE CSS */
+        .hero-luxury {
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Si vous voulez une image de fond via HTML */
+        .hero-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .luxury-badge {
+            display: inline-block;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            color: #D4AF37;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-luxury);
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: 900;
+            line-height: 0.9;
+            margin-bottom: 30px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+
+        .hero-title .luxury-text {
+            background: var(--luxury-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-title .eco-text {
+            background: var(--eco-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 50px;
+        }
+
+        .eco-features-luxury {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 50px 0;
+        }
+
+        .eco-feature-luxury {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            padding: 20px 30px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-luxury);
+        }
+
+        .eco-feature-luxury:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(76, 175, 80, 0.3);
+        }
+
+        .eco-icon-luxury {
+            font-size: 2rem;
+            color: #4CAF50;
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: var(--shadow-luxury);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 35px 70px rgba(0,0,0,0.3);
+        }
+
+        /* Luxury Fleet Cards */
+        .fleet-card-luxury {
+            background: linear-gradient(145deg, rgba(0,0,0,0.9), rgba(26,26,26,0.9));
+            border: 2px solid;
+            border-image: var(--luxury-gold) 1;
+            border-radius: 30px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-luxury);
+        }
+
+        .fleet-card-luxury:hover {
+            transform: scale(1.05) rotateY(5deg);
+            box-shadow: 0 40px 80px rgba(212, 175, 55, 0.4);
+        }
+
+        .car-image-container {
+            height: 350px;
+            background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .car-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .car-placeholder {
+            text-align: center;
+            color: #666;
+            font-size: 1.2rem;
+            padding: 20px;
+        }
+
+        .luxury-label {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--luxury-gold);
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+            z-index: 10;
+        }
+
+        .eco-label {
+            background: var(--eco-gradient);
+            color: #000;
+        }
+
+        /* Pricing Luxury */
+        .price-luxury {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--luxury-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Impact Section */
+        .impact-counter {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            background: var(--eco-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Parallax Sections */
+        .parallax-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parallax-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .parallax-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(26,26,26,0.6));
+            z-index: -1;
+        }
+
+        /* Luxury Form */
+        .form-luxury {
+            background: linear-gradient(145deg, rgba(0,0,0,0.9), rgba(26,26,26,0.8));
+            border: 2px solid;
+            border-image: var(--luxury-gold) 1;
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: var(--shadow-luxury);
+        }
+
+        .form-control-luxury {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 15px;
+            color: #fff;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control-luxury:focus {
+            background: rgba(255,255,255,0.15);
+            border-color: #D4AF37;
+            box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+            color: #fff;
+        }
+
+        .form-control-luxury::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Floating Animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Typing Animation */
+        .typing-text {
+            overflow: hidden;
+            border-right: 0.15em solid #D4AF37;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #D4AF37; }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            .eco-features-luxury {
+                flex-direction: column;
+                align-items: center;
+            }
+            .fleet-card-luxury:hover {
+                transform: scale(1.02);
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--luxury-gold);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FFD700;
+        }
+
+        /* Section Spacing */
+        .section-luxury {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-title-luxury {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-title-luxury::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--luxury-gold);
+            border-radius: 2px;
+        }
+
+        .section-subtitle-luxury {
+            text-align: center;
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 80px;
+        }
+
+        /* Placeholder Styles */
+        .image-placeholder {
+            background: #333;
+            border: 3px dashed #D4AF37;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #D4AF37;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .change-me {
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid #D4AF37;
+            color: #D4AF37;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 10px 0;
+            text-align: center;
+            font-weight: bold;
+            animation: pulse-gold 2s infinite;
+        }
+
+        @keyframes pulse-gold {
+            0%, 100% { background: rgba(212, 175, 55, 0.1); }
+            50% { background: rgba(212, 175, 55, 0.3); }
+        }
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70">
+
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-luxury fixed-top" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-car-side me-2"></i>e-Fast
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#fleet">Flotte</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tarifs">Tarifs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="#reservation" class="btn btn-luxury">
+                        <i class="fas fa-calendar-plus me-2"></i>Réserver
+                    </a>
+                    <a href="tel:0609548128" class="btn btn-outline-light ms-3">
+                        <i class="fas fa-phone me-2"></i>06 09 54 81 28
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- HERO SECTION - CHANGEZ L'IMAGE DE FOND ICI -->
+    <!-- ============================================ -->
+    <section id="home" class="hero-luxury">
+        <!-- 
+        POUR AJOUTER UNE IMAGE DE FOND CÔTE D'AZUR :
+        Décommentez la ligne suivante et remplacez "VOTRE_IMAGE_COTE_AZUR.jpg" par votre image
+        -->
+        <!-- <img src="VOTRE_IMAGE_COTE_AZUR.jpg" alt="Côte d'Azur" class="hero-bg-image"> -->
+        
+        <div class="change-me">
+            📸 CHANGEZ MOI : Ajoutez votre image de la Côte d'Azur en décommentant la ligne au-dessus
+        </div>
+        
+        <div class="hero-overlay"></div>
+        
+        <div class="container">
+            <div class="row justify-content-center text-center hero-content">
+                <div class="col-lg-10">
+                    <div class="luxury-badge floating" data-aos="fade-down">
+                        <i class="fas fa-leaf me-2"></i>100% ÉLECTRIQUE & ÉCOLOGIQUE
+                    </div>
+                    <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
+                        Service VTC
+                        <br><span class="luxury-text">Premium</span> & <span class="eco-text">Luxe</span>
+                    </h1>
+                    <p class="hero-subtitle typing-text" data-aos="fade-up" data-aos-delay="400">
+                        L'élégance rencontre l'écologie sur la Côte d'Azur
+                    </p>
+                    
+                    <div class="eco-features-luxury" data-aos="fade-up" data-aos-delay="600">
+                        <div class="eco-feature-luxury">
+                            <i class="eco-icon-luxury fas fa-bolt"></i>
+                            <span><strong>Zéro Émission</strong></span>
+                        </div>
+                        <div class="eco-feature-luxury">
+                            <i class="eco-icon-luxury fas fa-volume-mute"></i>
+                            <span><strong>Ultra Silencieux</strong></span>
+                        </div>
+                        <div class="eco-feature-luxury">
+                            <i class="eco-icon-luxury fas fa-globe-europe"></i>
+                            <span><strong>Éco-Responsable</strong></span>
+                        </div>
+                        <div class="eco-feature-luxury">
+                            <i class="eco-icon-luxury fas fa-recycle"></i>
+                            <span><strong>Mobilité Durable</strong></span>
+                        </div>
+                    </div>
+
+                    <div class="mt-5" data-aos="fade-up" data-aos-delay="800">
+                        <a href="#reservation" class="btn btn-luxury btn-lg me-3">
+                            <i class="fas fa-calendar-check me-2"></i>Réserver Maintenant
+                        </a>
+                        <a href="#fleet" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-car me-2"></i>Découvrir la Flotte
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Section -->
+    <section id="fleet" class="section-luxury">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title-luxury" data-aos="fade-up">Véhicules d'Exception</h2>
+                <p class="section-subtitle-luxury" data-aos="fade-up" data-aos-delay="200">
+                    Une flotte prestigieuse alliant luxe, performance et respect de l'environnement
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <!-- ================================ -->
+                <!-- BENTLEY - CHANGEZ L'IMAGE ICI   -->
+                <!-- ================================ -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="fleet-card-luxury h-100">
+                        <div class="car-image-container">
+                            <!-- DÉCOMMENTEZ ET CHANGEZ L'IMAGE CI-DESSOUS -->
+                            <!-- <img src="VOTRE_IMAGE_BENTLEY.jpg" alt="Bentley Continental GT"> -->
+                            
+                            <div class="image-placeholder car-placeholder">
+                                <i class="fas fa-camera fa-4x mb-3"></i>
+                                <div class="change-me">
+                                    📸 CHANGEZ MOI<br>
+                                    Ajoutez votre photo de Bentley Continental GT
+                                </div>
+                            </div>
+                            
+                            <div class="luxury-label">
+                                <i class="fas fa-crown me-2"></i>LUXE PREMIUM
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="h2 mb-3">
+                                <i class="fas fa-gem me-2 text-warning"></i>Bentley Continental GT
+                            </h3>
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-star text-warning me-2"></i>
+                                        <small>Ultra Luxe</small>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-user-tie text-warning me-2"></i>
+                                        <small>Chauffeur Premium</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-champagne-glasses text-warning me-2"></i>
+                                        <small>Champagne offert</small>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-wifi text-warning me-2"></i>
+                                        <small>WiFi Premium</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="price-luxury">500€/jour • 100€/heure</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================= -->
+                <!-- TESLA - CHANGEZ L'IMAGE ICI  -->
+                <!-- ============================= -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="fleet-card-luxury h-100">
+                        <div class="car-image-container">
+                            <!-- DÉCOMMENTEZ ET CHANGEZ L'IMAGE CI-DESSOUS -->
+                            <!-- <img src="VOTRE_IMAGE_TESLA.jpg" alt="Tesla Model S"> -->
+                            
+                            <div class="image-placeholder car-placeholder">
+                                <i class="fas fa-camera fa-4x mb-3"></i>
+                                <div class="change-me">
+                                    📸 CHANGEZ MOI<br>
+                                    Ajoutez votre photo de Tesla Model S
+                                </div>
+                            </div>
+                            
+                            <div class="luxury-label eco-label">
+                                <i class="fas fa-leaf me-2"></i>100% ÉLECTRIQUE
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="h2 mb-3">
+                                <i class="fas fa-bolt me-2 text-success"></i>Flotte Électrique Premium
+                            </h3>
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-car-electric text-success me-2"></i>
+                                        <small>Tesla, MG4, MG5</small>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-leaf text-success me-2"></i>
+                                        <small>Zéro émission</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-battery-full text-success me-2"></i>
+                                        <small>Grande autonomie</small>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-volume-mute text-success me-2"></i>
+                                        <small>Silencieux</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="price-luxury text-success">70€/heure</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================================ -->
+            <!-- GALERIE PHOTOS - CHANGEZ ICI    -->
+            <!-- ================================ -->
+            <div class="row mt-5">
+                <div class="col-12" data-aos="fade-up">
+                    <h3 class="h2 text-center mb-5">Galerie Photos</h3>
+                </div>
+                
+                <!-- TESLA MODEL S -->
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card h-100">
+                        <div class="mb-3" style="height: 200px; overflow: hidden; border-radius: 15px;">
+                            <!-- DÉCOMMENTEZ ET CHANGEZ L'IMAGE CI-DESSOUS -->
+                            <!-- <img src="VOTRE_IMAGE_TESLA_GALERIE.jpg" alt="Tesla Model S" class="w-100 h-100" style="object-fit: cover;"> -->
+                            
+                            <div class="image-placeholder" style="height: 200px;">
+                                <i class="fas fa-camera fa-3x mb-2"></i>
+                                <div class="change-me">📸 Photo Tesla Model S</div>
+                            </div>
+                        </div>
+                        <h5><i class="fas fa-bolt me-2 text-warning"></i>Tesla Model S</h5>
+                        <p class="mb-0">Performance électrique ultime • Autopilot • 650km d'autonomie</p>
+                    </div>
+                </div>
+                
+                <!-- MG4 ELECTRIC -->
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="glass-card h-100">
+                        <div class="mb-3" style="height: 200px; overflow: hidden; border-radius: 15px;">
+                            <!-- DÉCOMMENTEZ ET CHANGEZ L'IMAGE CI-DESSOUS -->
+                            <!-- <img src="VOTRE_IMAGE_MG4.jpg" alt="MG4 Electric" class="w-100 h-100" style="object-fit: cover;"> -->
+                            
+                            <div class="image-placeholder" style="height: 200px;">
+                                <i class="fas fa-camera fa-3x mb-2"></i>
+                                <div class="change-me">📸 Photo MG4 Electric</div>
+                            </div>
+                        </div>
+                        <h5><i class="fas fa-car me-2 text-success"></i>MG4 Electric</h5>
+                        <p class="mb-0">Berline compacte 100% électrique • 450km d'autonomie • WiFi à bord</p>
+                    </div>
+                </div>
+                
+                <!-- MG5 ELECTRIC -->
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="glass-card h-100">
+                        <div class="mb-3" style="height: 200px; overflow: hidden; border-radius: 15px;">
+                            <!-- DÉCOMMENTEZ ET CHANGEZ L'IMAGE CI-DESSOUS -->
+                            <!-- <img src="VOTRE_IMAGE_MG5.jpg" alt="MG5 Electric" class="w-100 h-100" style="object-fit: cover;"> -->
+                            
+                            <div class="image-placeholder" style="height: 200px;">
+                                <i class="fas fa-camera fa-3x mb-2"></i>
+                                <div class="change-me">📸 Photo MG5 Electric</div>
+                            </div>
+                        </div>
+                        <h5><i class="fas fa-car-side me-2 text-success"></i>MG5 Electric</h5>
+                        <p class="mb-0">Break familial spacieux • 400km d'autonomie • Grand coffre</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- IMPACT SECTION - IMAGE DE FOND PARALLAX   -->
+    <!-- ========================================== -->
+    <section class="section-luxury parallax-section">
+        <!-- DÉCOMMENTEZ ET CHANGEZ L'IMAGE DE FOND CI-DESSOUS -->
+        <!-- <img src="VOTRE_IMAGE_FOND_MONACO.jpg" alt="Monaco" class="parallax-bg-image"> -->
+        
+        <div class="parallax-overlay"></div>
+        <div class="change-me" style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); z-index: 10;">
+            📸 Ajoutez ici une image de Monaco ou Côte d'Azur en décommentant au-dessus
+        </div>
+        
+        <div class="container position-relative">
+            <div class="text-center mb-5">
+                <h2 class="section-title-luxury" data-aos="fade-up">Notre Impact Environnemental</h2>
+                <p class="section-subtitle-luxury" data-aos="fade-up" data-aos-delay="200">
+                    Chaque trajet compte pour l'avenir de notre planète
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card text-center h-100">
+                        <div class="impact-counter" data-counter="0">0</div>
+                        <h5 class="mt-3">Émissions CO₂</h5>
+                        <p class="mb-0">Avec nos véhicules électriques</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="glass-card text-center h-100">
+                        <div class="impact-counter" data-counter="100">0</div>
+                        <h5 class="mt-3">% Énergie Verte</h5>
+                        <p class="mb-0">Électricité renouvelable</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="700">
+                    <div class="glass-card text-center h-100">
+                        <div class="impact-counter" data-counter="-80">0</div>
+                        <h5 class="mt-3">% Pollution Sonore</h5>
+                        <p class="mb-0">Véhicules silencieux</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="900">
+                    <div class="glass-card text-center h-100">
+                        <div class="impact-counter">♻️</div>
+                        <h5 class="mt-3">Mobilité Durable</h5>
+                        <p class="mb-0">Engagement écologique</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-luxury">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title-luxury" data-aos="fade-up">Services Premium Côte d'Azur</h2>
+                <p class="section-subtitle-luxury" data-aos="fade-up" data-aos-delay="200">
+                    Une expérience sur mesure pour chaque occasion
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card text-center h-100">
+                        <div class="mb-4">
+                            <i class="fas fa-plane fa-4x mb-3" style="background: var(--luxury-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                        </div>
+                        <h4>Transfert Aéroport Nice</h4>
+                        <p>Service écologique pour l'aéroport. Véhicules électriques disponibles 24/7.</p>
+                        <div class="mt-auto">
+                            <a href="#reservation" class="btn btn-outline-light">
+                                <i class="fas fa-calendar-plus me-2"></i>Réserver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="glass-card text-center h-100">
+                        <div class="mb-4">
+                            <i class="fas fa-map-marked-alt fa-4x mb-3" style="background: var(--luxury-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                        </div>
+                        <h4>Circuit Touristique</h4>
+                        <p>Monaco, Cannes, Saint-Tropez en Bentley ou Tesla. Expérience unique garantie.</p>
+                        <div class="mt-auto">
+                            <a href="#reservation" class="btn btn-outline-light">
+                                <i class="fas fa-calendar-plus me-2"></i>Réserver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
+                    <div class="glass-card text-center h-100">
+                        <div class="mb-4">
+                            <i class="fas fa-film fa-4x mb-3" style="background: var(--luxury-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                        </div>
+                        <h4>Festival de Cannes</h4>
+                        <p>Service VIP éco-responsable. Arrivez en style avec nos véhicules premium.</p>
+                        <div class="mt-auto">
+                            <a href="#reservation" class="btn btn-outline-light">
+                                <i class="fas fa-calendar-plus me-2"></i>Réserver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="900">
+                    <div class="glass-card text-center h-100">
+                        <div class="mb-4">
+                            <i class="fas fa-briefcase fa-4x mb-3" style="background: var(--luxury-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                        </div>
+                        <h4>Business Écologique</h4>
+                        <p>Déplacements professionnels zéro émission. Nice, Sophia Antipolis, Monaco.</p>
+                        <div class="mt-auto">
+                            <a href="#reservation" class="btn btn-outline-light">
+                                <i class="fas fa-calendar-plus me-2"></i>Réserver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="1100">
+                    <div class="glass-card text-center h-100">
+                        <div class="mb-4">
+                            <i class="fas fa-cocktail fa-4x mb-3" style="background: var(--luxury-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                        </div>
+                        <h4>Soirées Premium</h4>
+                        <p>Casino Monte-Carlo, clubs privés. Service 24/7 en véhicule silencieux.</p>
+                        <div class="mt-auto">
+                            <a href="#reservation" class="btn btn-outline-light">
+                                <i class="fas fa-calendar-plus me-2"></i>Réserver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="1300">
+                    <div class="glass-card text-center h-100">
+                        <div class="mb-4">
+                            <i class="fas fa-users fa-4x mb-3" style="background: var(--luxury-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                        </div>
+                        <h4>Famille & Confort</h4>
+                        <p>Véhicules spacieux électriques. Sièges bébé disponibles sur demande.</p>
+                        <div class="mt-auto">
+                            <a href="#reservation" class="btn btn-outline-light">
+                                <i class="fas fa-calendar-plus me-2"></i>Réserver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partenaires -->
+    <section class="section-luxury" style="padding: 80px 0;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h3 class="h2 mb-4" data-aos="fade-up">Nos Partenaires de Confiance</h3>
+            </div>
+            <div class="row justify-content-center g-4">
+                <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card text-center py-4">
+                        <h5 class="mb-0 text-dark">Uber</h5>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="glass-card text-center py-4">
+                        <h5 class="mb-0" style="color: #ff1493;">Girly Car</h5>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="glass-card text-center py-4">
+                        <h5 class="mb-0" style="color: #00d46a;">Bolt</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tarifs Section -->
+    <section id="tarifs" class="section-luxury">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title-luxury" data-aos="fade-up">Tarifs Transparents</h2>
+                <p class="section-subtitle-luxury" data-aos="fade-up" data-aos-delay="200">
+                    Des prix justes pour une expérience d'exception
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card h-100">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-crown fa-3x mb-3" style="color: #D4AF37;"></i>
+                            <h3>🏆 Bentley Premium</h3>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="d-flex justify-content-between py-3 border-bottom border-secondary">
+                                <strong>Journée (8h):</strong>
+                                <span class="price-luxury fs-5">500€</span>
+                            </li>
+                            <li class="d-flex justify-content-between py-3 border-bottom border-secondary">
+                                <strong>Tarif horaire:</strong>
+                                <span class="price-luxury fs-5">100€/h</span>
+                            </li>
+                            <li class="d-flex justify-content-between py-3">
+                                <strong>Circuit touristique:</strong>
+                                <span class="price-luxury fs-5">Sur devis</span>
+                            </li>
+                        </ul>
+                        <div class="text-center mt-4">
+                            <a href="#reservation" class="btn btn-luxury w-100">
+                                <i class="fas fa-gem me-2"></i>Choisir Bentley
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="glass-card h-100">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-leaf fa-3x mb-3" style="color: #4CAF50;"></i>
+                            <h3>⚡ Véhicules 100% Électriques</h3>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="d-flex justify-content-between py-3 border-bottom border-secondary">
+                                <strong>Tesla Model S:</strong>
+                                <span class="text-success fs-5 fw-bold">70€/h</span>
+                            </li>
+                            <li class="d-flex justify-content-between py-3 border-bottom border-secondary">
+                                <strong>MG4 Electric:</strong>
+                                <span class="text-success fs-5 fw-bold">70€/h</span>
+                            </li>
+                            <li class="d-flex justify-content-between py-3">
+                                <strong>MG5 Electric:</strong>
+                                <span class="text-success fs-5 fw-bold">70€/h</span>
+                            </li>
+                        </ul>
+                        <div class="text-center mt-4">
+                            <a href="#reservation" class="btn btn-success w-100">
+                                <i class="fas fa-bolt me-2"></i>Choisir Électrique
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="700">
+                    <div class="glass-card h-100">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-car fa-3x mb-3" style="color: #6c757d;"></i>
+                            <h3>🚗 Autres Véhicules Premium</h3>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="d-flex justify-content-between py-3 border-bottom border-secondary">
+                                <strong>Mercedes Classe S:</strong>
+                                <span class="text-light fs-5 fw-bold">130€/h</span>
+                            </li>
+                            <li class="d-flex justify-content-between py-3 border-bottom border-secondary">
+                                <strong>BMW Série 7:</strong>
+                                <span class="text-light fs-5 fw-bold">130€/h</span>
+                            </li>
+                            <li class="d-flex justify-content-between py-3">
+                                <strong>Via plateformes:</strong>
+                                <span class="text-light fs-5 fw-bold">Variable</span>
+                            </li>
+                        </ul>
+                        <div class="text-center mt-4">
+                            <a href="#reservation" class="btn btn-outline-light w-100">
+                                <i class="fas fa-star me-2"></i>Choisir Premium
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Réservation -->
+    <section id="reservation" class="section-luxury">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title-luxury" data-aos="fade-up">Réservez Votre Véhicule d'Exception</h2>
+                <p class="section-subtitle-luxury" data-aos="fade-up" data-aos-delay="200">
+                    Une réservation simple pour une expérience inoubliable
+                </p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="form-luxury" data-aos="fade-up" data-aos-delay="300">
+                        <form id="reservationForm">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <label class="form-label text-light">
+                                        <i class="fas fa-user me-2"></i>Prénom *
+                                    </label>
+                                    <input type="text" class="form-control form-control-luxury" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-light">
+                                        <i class="fas fa-user me-2"></i>Nom *
+                                    </label>
+                                    <input type="text" class="form-control form-control-luxury" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-light">
+                                        <i class="fas fa-envelope me-2"></i>Email *
+                                    </label>
+                                    <input type="email" class="form-control form-control-luxury" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-light">
+                                        <i class="fas fa-phone me-2"></i>Téléphone *
+                                    </label>
+                                    <input type="tel" class="form-control form-control-luxury" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-light">
+                                        <i class="fas fa-calendar me-2"></i>Date *
+                                    </label>
+                                    <input type="date" class="form-control form-control-luxury" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-light">
+                                        <i class="fas fa-clock me-2"></i>Heure *
+                                    </label>
+                                    <input type="time" class="form-control form-control-luxury" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-light">
+                                        <i class="fas fa-car me-2"></i>Véhicule *
+                                    </label>
+                                    <select class="form-control form-control-luxury" required>
+                                        <option value="">Choisissez votre véhicule...</option>
+                                        <optgroup label="🌱 100% Électrique">
+                                            <option>Tesla Model S - 70€/h</option>
+                                            <option>MG4 Electric - 70€/h</option>
+                                            <option>MG5 Electric - 70€/h</option>
+                                        </optgroup>
+                                        <optgroup label="✨ Luxe Premium">
+                                            <option>Bentley Continental - 100€/h</option>
+                                            <option>Mercedes Classe S - 130€/h</option>
+                                            <option>BMW Série 7 - 130€/h</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-light">
+                                        <i class="fas fa-users me-2"></i>Nombre de passagers *
+                                    </label>
+                                    <select class="form-control form-control-luxury" required>
+                                        <option>1 passager</option>
+                                        <option>2 passagers</option>
+                                        <option>3 passagers</option>
+                                        <option>4 passagers</option>
+                                        <option>5 passagers</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label text-light">
+                                        <i class="fas fa-map-marker-alt me-2"></i>Adresse de départ *
+                                    </label>
+                                    <input type="text" class="form-control form-control-luxury" 
+                                           placeholder="Ex: Hôtel Martinez, Cannes" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label text-light">
+                                        <i class="fas fa-flag-checkered me-2"></i>Destination *
+                                    </label>
+                                    <input type="text" class="form-control form-control-luxury" 
+                                           placeholder="Ex: Aéroport Nice Côte d'Azur" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label text-light">
+                                        <i class="fas fa-comment me-2"></i>Message
+                                    </label>
+                                    <textarea rows="3" class="form-control form-control-luxury" 
+                                              placeholder="Demandes spéciales, préférences..."></textarea>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-luxury btn-lg px-5">
+                                        <i class="fas fa-calendar-check me-2"></i>
+                                        Confirmer la Réservation d'Excellence
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- CONTACT SECTION - IMAGE DE FOND PARALLAX  -->
+    <!-- ========================================== -->
+    <section id="contact" class="section-luxury parallax-section">
+        <!-- DÉCOMMENTEZ ET CHANGEZ L'IMAGE DE FOND CI-DESSOUS -->
+        <!-- <img src="VOTRE_IMAGE_FOND_CANNES.jpg" alt="Cannes" class="parallax-bg-image"> -->
+        
+        <div class="parallax-overlay"></div>
+        <div class="change-me" style="position: absolute; top: 20px; right: 20px; z-index: 10;">
+            📸 Ajoutez ici une image de Cannes en décommentant au-dessus
+        </div>
+        
+        <div class="container position-relative">
+            <div class="text-center mb-5">
+                <h2 class="section-title-luxury" data-aos="fade-up">Contact</h2>
+                <p class="section-subtitle-luxury" data-aos="fade-up" data-aos-delay="200">
+                    Votre service VTC de luxe vous attend
+                </p>
+            </div>
+
+            <div class="row justify-content-center g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card text-center h-100">
+                        <div class="mb-4">
+                            <div class="contact-icon-luxury mb-3">
+                                <i class="fas fa-phone fa-3x"></i>
+                            </div>
+                            <h5>Téléphone</h5>
+                            <p class="mb-0">Service 24/7</p>
+                        </div>
+                        <a href="tel:0609548128" class="btn btn-luxury">
+                            <i class="fas fa-phone me-2"></i>06 09 54 81 28
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="glass-card text-center h-100">
+                        <div class="mb-4">
+                            <div class="contact-icon-luxury mb-3">
+                                <i class="fas fa-envelope fa-3x"></i>
+                            </div>
+                            <h5>Email</h5>
+                            <p class="mb-0">Réponse rapide garantie</p>
+                        </div>
+                        <a href="mailto:alain.efastvtc@gmail.com" class="btn btn-luxury">
+                            <i class="fas fa-envelope me-2"></i>Nous écrire
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
+                    <div class="glass-card text-center h-100">
+                        <div class="mb-4">
+                            <div class="contact-icon-luxury mb-3">
+                                <i class="fas fa-map-marker-alt fa-3x"></i>
+                            </div>
+                            <h5>Zone de Service</h5>
+                            <p class="mb-0">Côte d'Azur & Monaco</p>
+                        </div>
+                        <div class="btn btn-luxury">
+                            <i class="fas fa-map-marker-alt me-2"></i>Côte d'Azur
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5" style="background: var(--luxury-dark);">
+        <div class="container text-center">
+            <div class="mb-4">
+                <h3 class="navbar-brand mb-3">
+                    <i class="fas fa-car-side me-2"></i>e-Fast VTC
+                </h3>
+                <p class="lead">Service Premium 100% Électrique & Écologique</p>
+            </div>
+            <div class="row justify-content-center mb-4">
+                <div class="col-auto">
+                    <a href="tel:0609548128" class="btn btn-outline-light me-3">
+                        <i class="fas fa-phone me-2"></i>06 09 54 81 28
+                    </a>
+                    <a href="mailto:alain.efastvtc@gmail.com" class="btn btn-outline-light">
+                        <i class="fas fa-envelope me-2"></i>Contact Email
+                    </a>
+                </div>
+            </div>
+            <hr style="border-color: var(--glass-border);">
+            <p class="mb-0" style="color: rgba(255,255,255,0.7);">
+                © 2024 e-Fast VTC. Tous droits réservés. | Luxe • Écologie • Excellence
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
+        });
+
+        // Particles.js configuration
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 50, density: { enable: true, value_area: 800 } },
+                color: { value: '#D4AF37' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.3, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#D4AF37',
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                },
+                modes: {
+                    repulse: { distance: 100, duration: 0.4 },
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-luxury');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('[data-counter]');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-counter'));
+                let current = 0;
+                const increment = target / 50;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.floor(current) + (target === 100 ? '%' : target < 0 ? '%' : '');
+                        setTimeout(updateCounter, 50);
+                    } else {
+                        counter.textContent = target + (target === 100 ? '%' : target < 0 ? '%' : '');
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+
+        // Trigger counter animation when section is visible
+        const impactSection = document.querySelector('.impact-counter').closest('.section-luxury');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (impactSection) {
+            observer.observe(impactSection);
+        }
+
+        // Form submission with luxury feedback
+        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            
+            // Loading state
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Traitement en cours...';
+            btn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check me-2"></i>Réservation confirmée !';
+                btn.classList.remove('btn-luxury');
+                btn.classList.add('btn-success');
+                
+                // Show success message
+                setTimeout(() => {
+                    alert('✅ Merci pour votre réservation d\'exception !\n\n🚗 Notre service premium vous contactera rapidement.\n\n🌟 e-Fast VTC - Luxe & Écologie');
+                    
+                    // Reset form and button
+                    this.reset();
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    btn.classList.remove('btn-success');
+                    btn.classList.add('btn-luxury');
+                }, 1500);
+            }, 2000);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Enhanced hover effects
+        document.querySelectorAll('.glass-card, .fleet-card-luxury').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Dynamic typing effect for subtitle (alternative implementation)
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.textContent = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            type();
+        }
+
+        // Initialize typing effect when hero section is visible
+        const heroSubtitle = document.querySelector('.hero-subtitle');
+        if (heroSubtitle) {
+            const originalText = heroSubtitle.textContent;
+            const heroObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            typeWriter(heroSubtitle, originalText, 80);
+                        }, 1000);
+                        heroObserver.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            heroObserver.observe(heroSubtitle);
+        }
+    </script>
+
+</body>
+</html>
