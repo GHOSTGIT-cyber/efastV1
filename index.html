@@ -137,35 +137,55 @@
             box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
         }
 
-        /* Hero Section Écologique */
-.hero {
-    margin-top: 90px;
-    padding: 100px 30px;
-    position: relative;
-    overflow: hidden;
+        /* Hero Section Écologique + Luxe */
+        .hero {
+            margin-top: 90px;
+            padding: 200px 30px;
+            position: relative;
+            overflow: hidden;
 
-    /* Image en fond */
-    background: url("images/banniere-hero.png") no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed; /* optionnel pour effet parallax */
-    color: white; /* texte lisible */
-}
+            /* Image de fond */
+            background: url("images/banniere-hero2.png") no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed; /* optionnel : effet parallax */
+            color: white;
+        }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    inset: 0; /* prend toute la section */
-    background: rgba(0, 0, 0, 0.4); /* filtre sombre pour lisibilité */
-    z-index: 0;
-}
+        /* Overlay sombre pour contraste texte */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4); 
+            z-index: 0;
+        }
 
-.hero-content {
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
-    position: relative;
-    z-index: 1; /* au-dessus du filtre */
-}
+        /* Bulle verte flottante (ton effet écologique) */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(76, 175, 80, 0.15) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+            z-index: 0; /* reste derrière le contenu, devant l'image */
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1; /* contenu au-dessus des overlays */
+        }
+
 
 
         .eco-badge {
@@ -334,19 +354,25 @@
         }
 
         .photo-area {
-            height: 250px;
-            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3em;
-            color: #ccc;
-            position: relative;
-            overflow: hidden;
+        height: 250px;
+        background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3em;
+        color: #ccc;
+        position: relative;
+        overflow: hidden;
         }
-
+        .photo-area img {
+        max-width: 130%;
+        max-height: 2000%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
         .photo-area::after {
-            content: 'Espace photo';
+            content: '';
             position: absolute;
             bottom: 10px;
             right: 10px;
@@ -861,8 +887,8 @@
         
         <div class="photo-grid">
             <div class="photo-placeholder">
-                <div class="photo-area">
-                    📸
+                <div class="photo-area"> <img src="images/Tesla S.png" alt="TESLA">
+                    
                 </div>
                 <div class="photo-info">
                     <h3 class="photo-title">Tesla Model S</h3>
@@ -871,8 +897,8 @@
             </div>
             
             <div class="photo-placeholder">
-                <div class="photo-area">
-                    📸
+                <div class="photo-area"><img src="images/MG4.png" alt="MG4">
+                    
                 </div>
                 <div class="photo-info">
                     <h3 class="photo-title">MG4 Electric</h3>
@@ -881,8 +907,8 @@
             </div>
             
             <div class="photo-placeholder">
-                <div class="photo-area">
-                    📸
+                <div class="photo-area"><img src="images/MG5.png" alt="MG5">
+                    
                 </div>
                 <div class="photo-info">
                     <h3 class="photo-title">MG5 Electric</h3>
