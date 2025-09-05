@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>e-fast & Girly-car VTC Premium</title>
+    <title>eFast VTC - Service Premium 100% Électrique | Côte d'Azur</title>
     <style>
         * {
             margin: 0;
@@ -13,221 +13,695 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            overflow-x: hidden;
             line-height: 1.6;
-            color: #333;
-            background-color: #ffffff;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
+        /* Header Premium */
         header {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            border-bottom: 2px solid #d4af37;
         }
 
-        .header-content {
+        nav {
+            max-width: 1300px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            padding: 0 30px;
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2c5f3f;
-        }
-
-        .contact-info {
+        .logo-container {
             display: flex;
-            gap: 30px;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            border: 3px solid #d4af37;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+        }
+
+        .car-svg {
+            width: 35px;
+            height: 35px;
+            fill: #d4af37;
+        }
+
+        .logo-text {
+            font-size: 36px;
+            font-weight: bold;
+            color: #1a1a1a;
+            letter-spacing: -2px;
+        }
+
+        .logo-text span {
+            color: #d4af37;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
             align-items: center;
         }
 
-        .contact-item {
-            color: #4a90e2;
+        .nav-links a {
+            color: #1a1a1a;
             text-decoration: none;
             font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            padding: 5px 0;
         }
 
-        .contact-item:hover {
-            color: #2c5f3f;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #4CAF50, #d4af37);
+            transition: width 0.3s;
         }
 
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            padding: 40px 0;
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
-        .service-card {
-            background: #ffffff;
-            border: 2px solid #e8f4f8;
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            border-color: #4a90e2;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .service-title {
-            font-size: 20px;
+        .btn-reservation {
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
             font-weight: bold;
-            color: #2c5f3f;
-            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            transition: all 0.3s;
         }
 
-        .service-subtitle {
-            color: #4a90e2;
-            font-weight: 600;
-            margin-bottom: 10px;
+        .btn-reservation:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
         }
 
-        .service-description {
+        /* Hero Section Écologique + Luxe */
+        .hero {
+            margin-top: 90px;
+            padding: 200px 30px;
+            position: relative;
+            overflow: hidden;
+
+            /* Image de fond */
+            background: url("images/banniere-hero2.png") no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed; /* optionnel : effet parallax */
+            color: white;
+        }
+
+        /* Overlay sombre pour contraste texte */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4); 
+            z-index: 0;
+        }
+
+        /* Bulle verte flottante (ton effet écologique) */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(76, 175, 80, 0.15) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+            z-index: 0; /* reste derrière le contenu, devant l'image */
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1; /* contenu au-dessus des overlays */
+        }
+
+
+
+        .eco-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 .green {
+            color: #4CAF50;
+        }
+
+        .hero h1 .gold {
+            color: #d4af37;
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .hero-subtitle {
+            font-size: 1.4em;
             color: #666;
-            font-size: 14px;
-            line-height: 1.5;
+            margin-bottom: 40px;
+            animation: fadeIn 1.5s ease-out;
         }
 
-        /* Vehicle Gallery */
-        .vehicle-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            padding: 50px 0;
+        .eco-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .eco-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1em;
+            color: #4CAF50;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .eco-icon {
+            font-size: 1.5em;
+        }
+
+        .hero-cta {
+            margin-top: 40px;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37, #f4e4a1);
+            color: #1a1a1a;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+            margin: 10px;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            background: transparent;
+            color: #4CAF50;
+            padding: 15px 40px;
+            border: 2px solid #4CAF50;
+            border-radius: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin: 10px;
+        }
+
+        .cta-secondary:hover {
+            background: #4CAF50;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Photo Gallery Section */
+        .photo-section {
+            padding: 80px 30px;
+            background: #f8f8f8;
         }
 
         .section-title {
             text-align: center;
-            font-size: 32px;
-            color: #2c5f3f;
-            margin-bottom: 40px;
-            font-weight: 300;
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            color: #1a1a1a;
         }
 
-        .vehicles-grid {
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #4CAF50, #d4af37);
+            margin: 20px auto;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .photo-placeholder {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .photo-placeholder:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .photo-area {
+        height: 250px;
+        background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3em;
+        color: #ccc;
+        position: relative;
+        overflow: hidden;
+        }
+        .photo-area img {
+        max-width: 130%;
+        max-height: 2000%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+        .photo-area::after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 0.4em;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .photo-info {
+            padding: 25px;
+            background: white;
+        }
+
+        .photo-title {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .photo-desc {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Fleet Section avec Espace Photos */
+        .fleet-section {
+            padding: 80px 30px;
+            background: white;
+        }
+
+        .fleet-carousel {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .car-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .car-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .car-image-placeholder {
+            height: 300px;
+            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            font-size: 4em;
+            color: #ddd;
+            overflow: hidden; /* Ajout important */
+        }
+        .car-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Pour remplir la zone sans déformation */
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        .car-image-placeholder.eco {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(139, 195, 74, 0.1));
+        }
+
+        .car-image-placeholder.luxury {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(244, 228, 161, 0.1));
+        }
+
+        .eco-label {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .luxury-label {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a1);
+            color: #1a1a1a;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .car-details {
+            padding: 30px;
+        }
+
+        .car-name {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .car-specs {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+        }
+
+        .spec-icon {
+            color: #4CAF50;
+            font-size: 1.2em;
+        }
+
+        .car-price {
+            font-size: 1.5em;
+            color: #d4af37;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Eco Impact Section */
+        .eco-impact {
+            padding: 80px 30px;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.05) 0%, rgba(139, 195, 74, 0.05) 100%);
+        }
+
+        .impact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
+            max-width: 1000px;
+            margin: 50px auto;
         }
 
-        .vehicle-card {
-            background: #ffffff;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .vehicle-card:hover {
-            transform: scale(1.02);
-        }
-
-        .vehicle-image {
-            width: 100%;
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .tesla-image { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23f0f0f0" width="400" height="200"/><text x="200" y="100" text-anchor="middle" font-family="Arial" font-size="16" fill="%23666">Tesla Model S</text></svg>'); }
-        .bmw-image { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23f0f0f0" width="400" height="200"/><text x="200" y="100" text-anchor="middle" font-family="Arial" font-size="16" fill="%23666">BMW Série 1</text></svg>'); }
-        .mercedes-image { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23f0f0f0" width="400" height="200"/><text x="200" y="100" text-anchor="middle" font-family="Arial" font-size="16" fill="%23666">Mercedes CLA</text></svg>'); }
-        .mg4-image { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23f0f0f0" width="400" height="200"/><text x="200" y="100" text-anchor="middle" font-family="Arial" font-size="16" fill="%23666">MG4 Electric</text></svg>'); }
-
-        .vehicle-info {
-            padding: 20px;
-        }
-
-        .vehicle-name {
-            font-weight: bold;
-            color: #2c5f3f;
-            margin-bottom: 5px;
-        }
-
-        .vehicle-platform {
-            color: #4a90e2;
-            font-size: 14px;
-        }
-
-        /* Premium Services */
-        .premium-services {
-            padding: 50px 0;
-            background: #ffffff;
-        }
-
-        .services-premium-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .premium-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            border: 2px solid #e8f4f8;
-            border-radius: 15px;
+        .impact-card {
+            background: white;
             padding: 30px;
+            border-radius: 15px;
             text-align: center;
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
         }
 
-        .premium-card:hover {
-            border-color: #2c5f3f;
-            transform: translateY(-3px);
+        .impact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.15);
         }
 
-        .premium-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .premium-title {
-            font-size: 18px;
+        .impact-number {
+            font-size: 3em;
             font-weight: bold;
-            color: #2c5f3f;
-            margin-bottom: 15px;
+            color: #4CAF50;
+            margin-bottom: 10px;
         }
 
-        .premium-description {
+        .impact-label {
+            font-size: 1.1em;
             color: #666;
-            font-size: 14px;
         }
 
-        /* Reservation Form */
-        .reservation-section {
-            background: linear-gradient(135deg, #4a90e2 0%, #2c5f3f 100%);
-            color: white;
-            padding: 60px 0;
+        /* Services Section */
+        .services-section {
+            padding: 80px 30px;
+            background: white;
         }
 
-        .form-container {
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: #f8f8f8;
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #4CAF50;
+            background: white;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: linear-gradient(135deg, #4CAF50, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Partners Section (plus bas) */
+        .partners-section {
+            padding: 60px 30px;
+            background: #f8f8f8;
+            text-align: center;
+        }
+
+        .partners-title {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+        }
+
+        .partners-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
             max-width: 800px;
             margin: 0 auto;
-            background: rgba(255,255,255,0.95);
-            padding: 40px;
-            border-radius: 20px;
-            color: #333;
         }
 
-        .form-title {
-            text-align: center;
-            font-size: 28px;
-            color: #2c5f3f;
-            margin-bottom: 30px;
+        .partner-item {
+            background: white;
+            padding: 20px 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            font-size: 1.3em;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .partner-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Tarifs Section */
+        .tarifs-section {
+            padding: 80px 30px;
+            background: white;
+        }
+
+        .tarifs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tarif-card {
+            background: white;
+            border: 2px solid #f0f0f0;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tarif-card.eco {
+            border-color: #4CAF50;
+        }
+
+        .tarif-card.eco::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+        }
+
+        .tarif-card.luxury::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #d4af37, #f4e4a1);
+        }
+
+        .tarif-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Formulaire de Réservation */
+        .reservation-section {
+            padding: 80px 30px;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.03) 0%, rgba(212, 175, 55, 0.03) 100%);
+        }
+
+        .reservation-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
         }
 
         .form-grid {
@@ -243,419 +717,574 @@
         }
 
         .form-group label {
-            color: #2c5f3f;
-            font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
-            padding: 12px;
-            border: 2px solid #e8f4f8;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
+            padding: 12px 15px;
+            border: 2px solid #f0f0f0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s;
+            background: white;
         }
 
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
-            border-color: #4a90e2;
             outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
         }
 
-        .form-full-width {
+        .form-group.full-width {
             grid-column: 1 / -1;
         }
 
-        .submit-btn {
-            background: linear-gradient(135deg, #2c5f3f 0%, #4a90e2 100%);
+        .btn-submit {
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
             color: white;
             padding: 15px 40px;
             border: none;
-            border-radius: 10px;
-            font-size: 18px;
+            border-radius: 25px;
+            font-size: 1.1em;
             font-weight: bold;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);
             width: 100%;
+            margin-top: 20px;
         }
 
-        .submit-btn:hover {
-            transform: translateY(-2px);
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
         }
 
-        /* Tourism Section */
-        .tourism-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            padding: 50px 0;
-        }
-
-        .tourism-card {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 40px;
-            margin: 30px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 30px;
+            background: #1a1a1a;
+            color: white;
             text-align: center;
         }
 
-        .tourism-title {
-            font-size: 24px;
-            color: #2c5f3f;
+        .contact-section .section-title {
+            color: white;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4CAF50, #d4af37);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 40px 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .footer-logo {
+            font-size: 2em;
             margin-bottom: 20px;
         }
 
-        .tourism-features {
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .pricing {
-            font-size: 20px;
-            font-weight: bold;
-            color: #4a90e2;
-            margin: 15px 0;
+        .footer-logo span {
+            color: #4CAF50;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 24px;
-            }
+            .hero h1 { font-size: 2em; }
+            .car-showcase { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .eco-features { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">e-fast & Girly-car VTC PREMIUM</div>
-                <div class="contact-info">
-                    <a href="tel:0609548128" class="contact-item">📞 06 09 54 81 28</a>
-                    <a href="mailto:alain.efast@gmail.com" class="contact-item">✉️ alain.efast@gmail.com</a>
+        <nav>
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <svg class="car-svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M5,11L6.5,6.5H17.5L19,11M17.5,16A1.5,1.5 0 0,1 16,14.5A1.5,1.5 0 0,1 17.5,13A1.5,1.5 0 0,1 19,14.5A1.5,1.5 0 0,1 17.5,16M6.5,16A1.5,1.5 0 0,1 5,14.5A1.5,1.5 0 0,1 6.5,13A1.5,1.5 0 0,1 8,14.5A1.5,1.5 0 0,1 6.5,16M18.92,6C18.72,5.42 18.16,5 17.5,5H6.5C5.84,5 5.28,5.42 5.08,6L3,12V20A1,1 0 0,0 4,21H5A1,1 0 0,0 6,20V19H18V20A1,1 0 0,0 19,21H20A1,1 0 0,0 21,20V12L18.92,6Z"/>
+                    </svg>
                 </div>
+                <div class="logo-text">e<span>-</span>Fast</div>
             </div>
-        </div>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#flotte">Notre Flotte</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#tarifs">Tarifs</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#reservation" class="btn-reservation">Réserver</a></li>
+            </ul>
+        </nav>
     </header>
 
+    <!-- Hero Section Écologique -->
+
+    
+
+    <!-- Section Hero avec image de fond -->
+<section class="hero" id="accueil">
+    <div class="hero-content">
+        <span class="eco-badge">🌱 100% ÉLECTRIQUE & ÉCOLOGIQUE</span>
+        <h1>Service VTC <span class="green">Premium</span> & <span class="gold">Luxe</span></h1>
+        <p class="hero-subtitle">Voyagez en respectant l'environnement sur la Côte d'Azur</p>
+        
+        <div class="eco-features">
+            <div class="eco-feature">
+                <span class="eco-icon">⚡</span>
+                <span>Zéro émission</span>
+            </div>
+            <div class="eco-feature">
+                <span class="eco-icon">🔇</span>
+                <span>Ultra silencieux</span>
+            </div>
+            <div class="eco-feature">
+                <span class="eco-icon">🌍</span>
+                <span>Éco-responsable</span>
+            </div>
+            <div class="eco-feature">
+                <span class="eco-icon">♻️</span>
+                <span>Mobilité durable</span>
+            </div>
+        </div>
+
+        <div class="hero-cta">
+            <a href="#reservation" class="cta-primary">Réserver maintenant</a>
+            <a href="tel:0609548128" class="cta-secondary">📞 06 09 54 81 28</a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Section Photos Véhicules -->
+    <section class="photo-section">
+        <h2 class="section-title">Notre Flotte Électrique & Premium</h2>
+        <p class="section-subtitle">Des véhicules d'exception pour une expérience unique</p>
+        
+        <div class="photo-grid">
+            <div class="photo-placeholder">
+                <div class="photo-area"> <img src="images/Tesla S.png" alt="TESLA">
+                    
+                </div>
+                <div class="photo-info">
+                    <h3 class="photo-title">Tesla Model S</h3>
+                    <p class="photo-desc">Performance électrique ultime • Autopilot • 650km d'autonomie</p>
+                </div>
+            </div>
+            
+            <div class="photo-placeholder">
+                <div class="photo-area"><img src="images/MG4.png" alt="MG4">
+                    
+                </div>
+                <div class="photo-info">
+                    <h3 class="photo-title">MG4 Electric</h3>
+                    <p class="photo-desc">Berline compacte 100% électrique • 450km d'autonomie • WiFi à bord</p>
+                </div>
+            </div>
+            
+            <div class="photo-placeholder">
+                <div class="photo-area"><img src="images/MG5.png" alt="MG5">
+                    
+                </div>
+                <div class="photo-info">
+                    <h3 class="photo-title">MG5 Electric</h3>
+                    <p class="photo-desc">Break familial spacieux • 400km d'autonomie • Grand coffre</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Section avec Photos -->
+    <section class="fleet-section" id="flotte">
+        <h2 class="section-title">Véhicules d'Exception</h2>
+        
+        <div class="fleet-carousel">
+            <div class="car-showcase">
+                <div class="car-card">
+                    <div class="car-image-placeholder luxury"> <img src="images/Bentley.png" alt="bentley">
+                        
+                        <span class="luxury-label">LUXE PREMIUM</span>
+                    </div>
+                    <div class="car-details">
+                        <h3 class="car-name">Bentley Continental GT</h3>
+                        <div class="car-specs">
+                            <div class="spec-item">
+                                <span class="spec-icon">✨</span>
+                                <span>Ultra Luxe</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-icon">👔</span>
+                                <span>Chauffeur Premium</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-icon">🍾</span>
+                                <span>Champagne offert</span>
+                            </div>
+                        </div>
+                        <p class="car-price">500€/jour • 100€/heure</p>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image-placeholder eco"> <img src="images/Capture d'écran 2025-09-03 103556.png" alt="ECO">
+                        
+                        <span class="eco-label">100% ÉLECTRIQUE</span>
+                    </div>
+                    <div class="car-details">
+                        <h3 class="car-name">Flotte Électrique Premium</h3>
+                        <div class="car-specs">
+                            <div class="spec-item">
+                                <span class="spec-icon">⚡</span>
+                                <span>Tesla, MG4, MG5</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-icon">🌱</span>
+                                <span>Zéro émission</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-icon">🔋</span>
+                                <span>Grande autonomie</span>
+                            </div>
+                        </div>
+                        <p class="car-price">70€/heure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Écologique -->
+    <section class="eco-impact">
+        <h2 class="section-title">Notre Impact Environnemental</h2>
+        
+        <div class="impact-grid">
+            <div class="impact-card">
+                <div class="impact-number">0</div>
+                <div class="impact-label">Émissions CO₂</div>
+            </div>
+            <div class="impact-card">
+                <div class="impact-number">100%</div>
+                <div class="impact-label">Énergie Verte</div>
+            </div>
+            <div class="impact-card">
+                <div class="impact-number">-80%</div>
+                <div class="impact-label">Pollution Sonore</div>
+            </div>
+            <div class="impact-card">
+                <div class="impact-number">♻️</div>
+                <div class="impact-label">Mobilité Durable</div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
-    <section class="container">
+    <section class="services-section" id="services">
+        <h2 class="section-title">Services Premium Côte d'Azur</h2>
+        
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-title">e-fast VTC</div>
-                <div class="service-subtitle">100% électrique & écologique</div>
-                <div class="service-description">
-                    Service VTC Premium<br>
-                    Chauffeurs H/F<br>
-                    Plateforme Uber – Bolt – Girly-car
-                </div>
+                <div class="service-icon">✈️</div>
+                <h3>Transfert Aéroport Nice</h3>
+                <p>Service écologique pour l'aéroport. Véhicules électriques disponibles 24/7.</p>
             </div>
 
             <div class="service-card">
-                <div class="service-title">Girly-car VTC</div>
-                <div class="service-subtitle">100% électrique & écologique</div>
-                <div class="service-description">
-                    Conductrice Femme ou Homme Vertueux<br>
-                    pour couples, femmes et enfants<br>
-                    Plateforme Uber – Bolt – Girly-car
-                </div>
+                <div class="service-icon">🏖️</div>
+                <h3>Circuit Touristique</h3>
+                <p>Monaco, Cannes, Saint-Tropez en Bentley ou Tesla. Expérience unique garantie.</p>
             </div>
 
             <div class="service-card">
-                <div class="service-title">Tourisme VTC</div>
-                <div class="service-subtitle">Mis à disposition</div>
-                <div class="service-description">
-                    Bentley – Mercedes – BMW<br>
-                    Tarif forfaitaire à l'heure,<br>
-                    demi journée – journée
+                <div class="service-icon">🎬</div>
+                <h3>Festival de Cannes</h3>
+                <p>Service VIP éco-responsable. Arrivez en style avec nos véhicules premium.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💼</div>
+                <h3>Business Écologique</h3>
+                <p>Déplacements professionnels zéro émission. Nice, Sophia Antipolis, Monaco.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🌃</div>
+                <h3>Soirées Premium</h3>
+                <p>Casino Monte-Carlo, clubs privés. Service 24/7 en véhicule silencieux.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">👨‍👩‍👧‍👦</div>
+                <h3>Famille & Confort</h3>
+                <p>Véhicules spacieux électriques. Sièges bébé disponibles sur demande.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partenaires (plus bas dans le site) -->
+    <section class="partners-section">
+        <h3 class="partners-title">Nos Partenaires de Confiance</h3>
+        <div class="partners-grid">
+            <div class="partner-item" style="color: #000;">Uber</div>
+            <div class="partner-item" style="color: #ff1493;">Girly Car</div>
+            <div class="partner-item" style="color: #00d46a;">Bolt</div>
+        </div>
+    </section>
+
+    <!-- Tarifs Section -->
+    <section class="tarifs-section" id="tarifs">
+        <h2 class="section-title">Tarifs Transparents</h2>
+        
+        <div class="tarifs-grid">
+            <div class="tarif-card luxury">
+                <h3>🏆 Bentley Premium</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 15px 0; border-bottom: 1px solid #f0f0f0;">
+                        <strong>Journée (8h):</strong> <span style="float: right; color: #d4af37; font-weight: bold;">500€</span>
+                    </li>
+                    <li style="padding: 15px 0; border-bottom: 1px solid #f0f0f0;">
+                        <strong>Tarif horaire:</strong> <span style="float: right; color: #d4af37; font-weight: bold;">100€/h</span>
+                    </li>
+                    <li style="padding: 15px 0;">
+                        <strong>Circuit touristique:</strong> <span style="float: right; color: #d4af37; font-weight: bold;">Sur devis</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tarif-card eco">
+                <h3>⚡ Véhicules 100% Électriques</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 15px 0; border-bottom: 1px solid #f0f0f0;">
+                        <strong>Tesla Model S:</strong> <span style="float: right; color: #4CAF50; font-weight: bold;">70€/h</span>
+                    </li>
+                    <li style="padding: 15px 0; border-bottom: 1px solid #f0f0f0;">
+                        <strong>MG4 Electric:</strong> <span style="float: right; color: #4CAF50; font-weight: bold;">70€/h</span>
+                    </li>
+                    <li style="padding: 15px 0;">
+                        <strong>MG5 Electric:</strong> <span style="float: right; color: #4CAF50; font-weight: bold;">70€/h</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tarif-card">
+                <h3>🚗 Autres Véhicules Premium</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 15px 0; border-bottom: 1px solid #f0f0f0;">
+                        <strong>Mercedes Classe S:</strong> <span style="float: right; color: #666; font-weight: bold;">130€/h</span>
+                    </li>
+                    <li style="padding: 15px 0; border-bottom: 1px solid #f0f0f0;">
+                        <strong>BMW Série 7:</strong> <span style="float: right; color: #666; font-weight: bold;">130€/h</span>
+                    </li>
+                    <li style="padding: 15px 0;">
+                        <strong>Via plateformes:</strong> <span style="float: right; color: #666; font-weight: bold;">Tarif variable</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Réservation -->
+    <section class="reservation-section" id="reservation">
+        <h2 class="section-title">Réservez Votre Véhicule Écologique</h2>
+        
+        <form class="reservation-form" onsubmit="handleReservation(event)">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Prénom *</label>
+                    <input type="text" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Nom *</label>
+                    <input type="text" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Téléphone *</label>
+                    <input type="tel" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Date *</label>
+                    <input type="date" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Heure *</label>
+                    <input type="time" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Véhicule *</label>
+                    <select required>
+                        <option value="">Choisissez...</option>
+                        <optgroup label="🌱 100% Électrique">
+                            <option>Tesla Model S - 70€/h</option>
+                            <option>MG4 Electric - 70€/h</option>
+                            <option>MG5 Electric - 70€/h</option>
+                        </optgroup>
+                        <optgroup label="✨ Luxe Premium">
+                            <option>Bentley Continental - 100€/h</option>
+                            <option>Mercedes Classe S - 130€/h</option>
+                            <option>BMW Série 7 - 130€/h</option>
+                        </optgroup>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Nombre de passagers *</label>
+                    <select required>
+                        <option>1 passager</option>
+                        <option>2 passagers</option>
+                        <option>3 passagers</option>
+                        <option>4 passagers</option>
+                        <option>5 passagers</option>
+                    </select>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label>Adresse de départ *</label>
+                    <input type="text" placeholder="Ex: Hôtel Martinez, Cannes" required>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label>Destination *</label>
+                    <input type="text" placeholder="Ex: Aéroport Nice Côte d'Azur" required>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label>Message</label>
+                    <textarea rows="3" placeholder="Demandes spéciales..."></textarea>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn-submit">Confirmer la Réservation Écologique</button>
+        </form>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section" id="contact">
+        <h2 class="section-title">Contact</h2>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <div>
+                    <div style="opacity: 0.8; font-size: 0.9em;">Téléphone</div>
+                    <div style="font-size: 1.2em; font-weight: bold;">06 09 54 81 28</div>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <div>
+                    <div style="opacity: 0.8; font-size: 0.9em;">Email</div>
+                    <div style="font-size: 1.2em; font-weight: bold;">alain.efastvtc@gmail.com</div>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div>
+                    <div style="opacity: 0.8; font-size: 0.9em;">Zone</div>
+                    <div style="font-size: 1.2em; font-weight: bold;">Côte d'Azur</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Vehicle Gallery -->
-    <section class="vehicle-section">
-        <div class="container">
-            <h2 class="section-title">Notre Flotte de Véhicules Premium</h2>
-            <div class="vehicles-grid">
-                <div class="vehicle-card">
-                    <div class="vehicle-image tesla-image"></div>
-                    <div class="vehicle-info">
-                        <div class="vehicle-name">Tesla – MG4 – MG5 - Marvel</div>
-                        <div class="vehicle-platform">Tarif plateforme Uber – Bolt -Girly-car</div>
-                    </div>
-                </div>
-
-                <div class="vehicle-card">
-                    <div class="vehicle-image bmw-image"></div>
-                    <div class="vehicle-info">
-                        <div class="vehicle-name">BMW</div>
-                        <div class="vehicle-platform">Tarif plateforme Uber – Bolt -Girly-car</div>
-                    </div>
-                </div>
-
-                <div class="vehicle-card">
-                    <div class="vehicle-image mercedes-image"></div>
-                    <div class="vehicle-info">
-                        <div class="vehicle-name">Mercedes</div>
-                        <div class="vehicle-platform">Tarif plateforme Uber – Bolt -Girly-car</div>
-                    </div>
-                </div>
-
-                <div class="vehicle-card">
-                    <div class="vehicle-image mg4-image"></div>
-                    <div class="vehicle-info">
-                        <div class="vehicle-name">MG4</div>
-                        <div class="vehicle-platform">Tarif plateforme Uber – Bolt -Girly-car</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tourism Section -->
-    <section class="tourism-section">
-        <div class="container">
-            <div class="tourism-card">
-                <h3 class="tourism-title">Tourisme Bentley GT - Mercedes – BMW</h3>
-                <div class="tourism-features">
-                    Chauffeur premium<br>
-                    Champagne offert
-                </div>
-                <div class="pricing">100€/h – 300€ 4h – 500€ la journée de 8h</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Premium Services -->
-    <section class="premium-services">
-        <div class="container">
-            <h2 class="section-title">Services Premium Côte d'Azur</h2>
-            <div class="services-premium-grid">
-                <div class="premium-card">
-                    <div class="premium-icon">✈️</div>
-                    <div class="premium-title">Transfert Aéroport Nice</div>
-                    <div class="premium-description">
-                        Service écologique pour l'aéroport.<br>
-                        Véhicules électriques disponibles 24/7.
-                    </div>
-                </div>
-
-                <div class="premium-card">
-                    <div class="premium-icon">🏖️</div>
-                    <div class="premium-title">Circuit Touristique</div>
-                    <div class="premium-description">
-                        Monaco, Cannes, Saint-Tropez en Bentley<br>
-                        ou Tesla. Expérience unique garantie.
-                    </div>
-                </div>
-
-                <div class="premium-card">
-                    <div class="premium-icon">🎬</div>
-                    <div class="premium-title">Festival de Cannes</div>
-                    <div class="premium-description">
-                        Service VIP éco-responsable. Arrivez en<br>
-                        style avec nos véhicules premium.
-                    </div>
-                </div>
-
-                <div class="premium-card">
-                    <div class="premium-icon">💼</div>
-                    <div class="premium-title">Business Écologique</div>
-                    <div class="premium-description">
-                        Déplacements professionnels zéro<br>
-                        émission. Nice, Sophia Antipolis, Monaco.
-                    </div>
-                </div>
-
-                <div class="premium-card">
-                    <div class="premium-icon">🎰</div>
-                    <div class="premium-title">Soirées Premium</div>
-                    <div class="premium-description">
-                        Casino Monte-Carlo, clubs privés. Service<br>
-                        24/7 en véhicule silencieux.
-                    </div>
-                </div>
-
-                <div class="premium-card">
-                    <div class="premium-icon">👨‍👩‍👧‍👦</div>
-                    <div class="premium-title">Famille & Confort</div>
-                    <div class="premium-description">
-                        Véhicules spacieux électriques. Sièges<br>
-                        bébé disponibles sur demande.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reservation Form -->
-    <section class="reservation-section">
-        <div class="container">
-            <div class="form-container">
-                <h2 class="form-title">Réservez Maintenant</h2>
-                <form id="reservationForm">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="nom">Nom *</label>
-                            <input type="text" id="nom" name="nom" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="prenom">Prénom *</label>
-                            <input type="text" id="prenom" name="prenom" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="telephone">Téléphone *</label>
-                            <input type="tel" id="telephone" name="telephone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Type de service *</label>
-                            <select id="service" name="service" required>
-                                <option value="">Choisissez un service</option>
-                                <option value="efast">e-fast VTC</option>
-                                <option value="girlycar">Girly-car VTC</option>
-                                <option value="tourisme">Tourisme VTC</option>
-                                <option value="aeroport">Transfert Aéroport</option>
-                                <option value="circuit">Circuit Touristique</option>
-                                <option value="business">Business</option>
-                                <option value="soiree">Soirée Premium</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="vehicule">Véhicule préféré</label>
-                            <select id="vehicule" name="vehicule">
-                                <option value="">Choisissez un véhicule</option>
-                                <option value="tesla">Tesla</option>
-                                <option value="bmw">BMW</option>
-                                <option value="mercedes">Mercedes</option>
-                                <option value="mg4">MG4</option>
-                                <option value="bentley">Bentley GT</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="date">Date *</label>
-                            <input type="date" id="date" name="date" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="heure">Heure *</label>
-                            <input type="time" id="heure" name="heure" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="depart">Lieu de départ *</label>
-                            <input type="text" id="depart" name="depart" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="arrivee">Lieu d'arrivée *</label>
-                            <input type="text" id="arrivee" name="arrivee" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="passagers">Nombre de passagers</label>
-                            <select id="passagers" name="passagers">
-                                <option value="1">1 passager</option>
-                                <option value="2">2 passagers</option>
-                                <option value="3">3 passagers</option>
-                                <option value="4">4 passagers</option>
-                                <option value="5+">5+ passagers</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="duree">Durée estimée</label>
-                            <select id="duree" name="duree">
-                                <option value="">Choisissez la durée</option>
-                                <option value="1h">1 heure</option>
-                                <option value="2h">2 heures</option>
-                                <option value="4h">4 heures (demi-journée)</option>
-                                <option value="8h">8 heures (journée complète)</option>
-                                <option value="autre">Autre</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group form-full-width">
-                        <label for="message">Message / Demandes spéciales</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Décrivez vos besoins spécifiques, demandes particulières..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">Réserver Maintenant</button>
-                </form>
-            </div>
-        </div>
-    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">e-Fast <span>VTC</span></div>
+        <p style="margin: 20px 0;">Service Premium 100% Électrique & Écologique</p>
+        <p style="opacity: 0.7;">© 2024 e-Fast VTC. Tous droits réservés.</p>
+    </footer>
 
     <script>
-        // Form submission handler
-        document.getElementById('reservationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Create email body
-            const emailBody = `
-Nouvelle réservation VTC:
-
-Informations client:
-- Nom: ${data.nom} ${data.prenom}
-- Téléphone: ${data.telephone}
-- Email: ${data.email}
-
-Détails de la réservation:
-- Service: ${data.service}
-- Véhicule: ${data.vehicule || 'Non spécifié'}
-- Date: ${data.date}
-- Heure: ${data.heure}
-- Départ: ${data.depart}
-- Arrivée: ${data.arrivee}
-- Passagers: ${data.passagers || '1'}
-- Durée: ${data.duree || 'Non spécifiée'}
-
-Message:
-${data.message || 'Aucun message'}
-            `;
-            
-            // Create mailto link
-            const subject = encodeURIComponent('Nouvelle réservation VTC');
-            const body = encodeURIComponent(emailBody);
-            const mailtoLink = `mailto:alain.efast@gmail.com?subject=${subject}&body=${body}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show confirmation
-            alert('Merci pour votre réservation ! Votre client email va s\'ouvrir pour envoyer la demande.');
-            
-            // Optional: Reset form
-            this.reset();
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
         });
 
-        // Set minimum date to today
-        document.getElementById('date').min = new Date().toISOString().split('T')[0];
+        // Form submission
+        function handleReservation(event) {
+            event.preventDefault();
+            const button = event.target.querySelector('.btn-submit');
+            button.textContent = '✓ Réservation envoyée !';
+            button.style.background = 'linear-gradient(135deg, #4CAF50, #8BC34A)';
+            
+            setTimeout(() => {
+                alert('Merci pour votre réservation écologique !\nNous vous contacterons rapidement.\n\ne-Fast VTC');
+                event.target.reset();
+                button.textContent = 'Confirmer la Réservation Écologique';
+                button.style.background = '';
+            }, 1500);
+        }
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.impact-card, .service-card, .photo-placeholder').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
     </script>
 </body>
 </html>
