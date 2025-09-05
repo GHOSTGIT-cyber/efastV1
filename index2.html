@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-fast & Girly-car VTC Premium</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c5f3f;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .contact-item {
+            color: #4a90e2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item:hover {
+            color: #2c5f3f;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 40px 0;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border: 2px solid #e8f4f8;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #4a90e2;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c5f3f;
+            margin-bottom: 15px;
+        }
+
+        .service-subtitle {
+            color: #4a90e2;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .service-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Vehicle Gallery */
+        .vehicle-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 50px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: #2c5f3f;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .vehicles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .vehicle-card {
+            background: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .vehicle-card:hover {
+            transform: scale(1.02);
+        }
+
+        .vehicle-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .tesla-image { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23f0f0f0" width="400" height="200"/><text x="200" y="100" text-anchor="middle" font-family="Arial" font-size="16" fill="%23666">Tesla Model S</text></svg>'); }
+        .bmw-image { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23f0f0f0" width="400" height="200"/><text x="200" y="100" text-anchor="middle" font-family="Arial" font-size="16" fill="%23666">BMW Série 1</text></svg>'); }
+        .mercedes-image { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23f0f0f0" width="400" height="200"/><text x="200" y="100" text-anchor="middle" font-family="Arial" font-size="16" fill="%23666">Mercedes CLA</text></svg>'); }
+        .mg4-image { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23f0f0f0" width="400" height="200"/><text x="200" y="100" text-anchor="middle" font-family="Arial" font-size="16" fill="%23666">MG4 Electric</text></svg>'); }
+
+        .vehicle-info {
+            padding: 20px;
+        }
+
+        .vehicle-name {
+            font-weight: bold;
+            color: #2c5f3f;
+            margin-bottom: 5px;
+        }
+
+        .vehicle-platform {
+            color: #4a90e2;
+            font-size: 14px;
+        }
+
+        /* Premium Services */
+        .premium-services {
+            padding: 50px 0;
+            background: #ffffff;
+        }
+
+        .services-premium-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .premium-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: 2px solid #e8f4f8;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .premium-card:hover {
+            border-color: #2c5f3f;
+            transform: translateY(-3px);
+        }
+
+        .premium-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .premium-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c5f3f;
+            margin-bottom: 15px;
+        }
+
+        .premium-description {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Reservation Form */
+        .reservation-section {
+            background: linear-gradient(135deg, #4a90e2 0%, #2c5f3f 100%);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            padding: 40px;
+            border-radius: 20px;
+            color: #333;
+        }
+
+        .form-title {
+            text-align: center;
+            font-size: 28px;
+            color: #2c5f3f;
+            margin-bottom: 30px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            color: #2c5f3f;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px;
+            border: 2px solid #e8f4f8;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #4a90e2;
+            outline: none;
+        }
+
+        .form-full-width {
+            grid-column: 1 / -1;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #2c5f3f 0%, #4a90e2 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Tourism Section */
+        .tourism-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 50px 0;
+        }
+
+        .tourism-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .tourism-title {
+            font-size: 24px;
+            color: #2c5f3f;
+            margin-bottom: 20px;
+        }
+
+        .tourism-features {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .pricing {
+            font-size: 20px;
+            font-weight: bold;
+            color: #4a90e2;
+            margin: 15px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">e-fast & Girly-car VTC PREMIUM</div>
+                <div class="contact-info">
+                    <a href="tel:0609548128" class="contact-item">📞 06 09 54 81 28</a>
+                    <a href="mailto:alain.efast@gmail.com" class="contact-item">✉️ alain.efast@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section class="container">
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-title">e-fast VTC</div>
+                <div class="service-subtitle">100% électrique & écologique</div>
+                <div class="service-description">
+                    Service VTC Premium<br>
+                    Chauffeurs H/F<br>
+                    Plateforme Uber – Bolt – Girly-car
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-title">Girly-car VTC</div>
+                <div class="service-subtitle">100% électrique & écologique</div>
+                <div class="service-description">
+                    Conductrice Femme ou Homme Vertueux<br>
+                    pour couples, femmes et enfants<br>
+                    Plateforme Uber – Bolt – Girly-car
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-title">Tourisme VTC</div>
+                <div class="service-subtitle">Mis à disposition</div>
+                <div class="service-description">
+                    Bentley – Mercedes – BMW<br>
+                    Tarif forfaitaire à l'heure,<br>
+                    demi journée – journée
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vehicle Gallery -->
+    <section class="vehicle-section">
+        <div class="container">
+            <h2 class="section-title">Notre Flotte de Véhicules Premium</h2>
+            <div class="vehicles-grid">
+                <div class="vehicle-card">
+                    <div class="vehicle-image tesla-image"></div>
+                    <div class="vehicle-info">
+                        <div class="vehicle-name">Tesla – MG4 – MG5 - Marvel</div>
+                        <div class="vehicle-platform">Tarif plateforme Uber – Bolt -Girly-car</div>
+                    </div>
+                </div>
+
+                <div class="vehicle-card">
+                    <div class="vehicle-image bmw-image"></div>
+                    <div class="vehicle-info">
+                        <div class="vehicle-name">BMW</div>
+                        <div class="vehicle-platform">Tarif plateforme Uber – Bolt -Girly-car</div>
+                    </div>
+                </div>
+
+                <div class="vehicle-card">
+                    <div class="vehicle-image mercedes-image"></div>
+                    <div class="vehicle-info">
+                        <div class="vehicle-name">Mercedes</div>
+                        <div class="vehicle-platform">Tarif plateforme Uber – Bolt -Girly-car</div>
+                    </div>
+                </div>
+
+                <div class="vehicle-card">
+                    <div class="vehicle-image mg4-image"></div>
+                    <div class="vehicle-info">
+                        <div class="vehicle-name">MG4</div>
+                        <div class="vehicle-platform">Tarif plateforme Uber – Bolt -Girly-car</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tourism Section -->
+    <section class="tourism-section">
+        <div class="container">
+            <div class="tourism-card">
+                <h3 class="tourism-title">Tourisme Bentley GT - Mercedes – BMW</h3>
+                <div class="tourism-features">
+                    Chauffeur premium<br>
+                    Champagne offert
+                </div>
+                <div class="pricing">100€/h – 300€ 4h – 500€ la journée de 8h</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Services -->
+    <section class="premium-services">
+        <div class="container">
+            <h2 class="section-title">Services Premium Côte d'Azur</h2>
+            <div class="services-premium-grid">
+                <div class="premium-card">
+                    <div class="premium-icon">✈️</div>
+                    <div class="premium-title">Transfert Aéroport Nice</div>
+                    <div class="premium-description">
+                        Service écologique pour l'aéroport.<br>
+                        Véhicules électriques disponibles 24/7.
+                    </div>
+                </div>
+
+                <div class="premium-card">
+                    <div class="premium-icon">🏖️</div>
+                    <div class="premium-title">Circuit Touristique</div>
+                    <div class="premium-description">
+                        Monaco, Cannes, Saint-Tropez en Bentley<br>
+                        ou Tesla. Expérience unique garantie.
+                    </div>
+                </div>
+
+                <div class="premium-card">
+                    <div class="premium-icon">🎬</div>
+                    <div class="premium-title">Festival de Cannes</div>
+                    <div class="premium-description">
+                        Service VIP éco-responsable. Arrivez en<br>
+                        style avec nos véhicules premium.
+                    </div>
+                </div>
+
+                <div class="premium-card">
+                    <div class="premium-icon">💼</div>
+                    <div class="premium-title">Business Écologique</div>
+                    <div class="premium-description">
+                        Déplacements professionnels zéro<br>
+                        émission. Nice, Sophia Antipolis, Monaco.
+                    </div>
+                </div>
+
+                <div class="premium-card">
+                    <div class="premium-icon">🎰</div>
+                    <div class="premium-title">Soirées Premium</div>
+                    <div class="premium-description">
+                        Casino Monte-Carlo, clubs privés. Service<br>
+                        24/7 en véhicule silencieux.
+                    </div>
+                </div>
+
+                <div class="premium-card">
+                    <div class="premium-icon">👨‍👩‍👧‍👦</div>
+                    <div class="premium-title">Famille & Confort</div>
+                    <div class="premium-description">
+                        Véhicules spacieux électriques. Sièges<br>
+                        bébé disponibles sur demande.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Form -->
+    <section class="reservation-section">
+        <div class="container">
+            <div class="form-container">
+                <h2 class="form-title">Réservez Maintenant</h2>
+                <form id="reservationForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nom">Nom *</label>
+                            <input type="text" id="nom" name="nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="prenom">Prénom *</label>
+                            <input type="text" id="prenom" name="prenom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone">Téléphone *</label>
+                            <input type="tel" id="telephone" name="telephone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Type de service *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Choisissez un service</option>
+                                <option value="efast">e-fast VTC</option>
+                                <option value="girlycar">Girly-car VTC</option>
+                                <option value="tourisme">Tourisme VTC</option>
+                                <option value="aeroport">Transfert Aéroport</option>
+                                <option value="circuit">Circuit Touristique</option>
+                                <option value="business">Business</option>
+                                <option value="soiree">Soirée Premium</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="vehicule">Véhicule préféré</label>
+                            <select id="vehicule" name="vehicule">
+                                <option value="">Choisissez un véhicule</option>
+                                <option value="tesla">Tesla</option>
+                                <option value="bmw">BMW</option>
+                                <option value="mercedes">Mercedes</option>
+                                <option value="mg4">MG4</option>
+                                <option value="bentley">Bentley GT</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date *</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="heure">Heure *</label>
+                            <input type="time" id="heure" name="heure" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="depart">Lieu de départ *</label>
+                            <input type="text" id="depart" name="depart" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="arrivee">Lieu d'arrivée *</label>
+                            <input type="text" id="arrivee" name="arrivee" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="passagers">Nombre de passagers</label>
+                            <select id="passagers" name="passagers">
+                                <option value="1">1 passager</option>
+                                <option value="2">2 passagers</option>
+                                <option value="3">3 passagers</option>
+                                <option value="4">4 passagers</option>
+                                <option value="5+">5+ passagers</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="duree">Durée estimée</label>
+                            <select id="duree" name="duree">
+                                <option value="">Choisissez la durée</option>
+                                <option value="1h">1 heure</option>
+                                <option value="2h">2 heures</option>
+                                <option value="4h">4 heures (demi-journée)</option>
+                                <option value="8h">8 heures (journée complète)</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group form-full-width">
+                        <label for="message">Message / Demandes spéciales</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Décrivez vos besoins spécifiques, demandes particulières..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Réserver Maintenant</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Form submission handler
+        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Create email body
+            const emailBody = `
+Nouvelle réservation VTC:
+
+Informations client:
+- Nom: ${data.nom} ${data.prenom}
+- Téléphone: ${data.telephone}
+- Email: ${data.email}
+
+Détails de la réservation:
+- Service: ${data.service}
+- Véhicule: ${data.vehicule || 'Non spécifié'}
+- Date: ${data.date}
+- Heure: ${data.heure}
+- Départ: ${data.depart}
+- Arrivée: ${data.arrivee}
+- Passagers: ${data.passagers || '1'}
+- Durée: ${data.duree || 'Non spécifiée'}
+
+Message:
+${data.message || 'Aucun message'}
+            `;
+            
+            // Create mailto link
+            const subject = encodeURIComponent('Nouvelle réservation VTC');
+            const body = encodeURIComponent(emailBody);
+            const mailtoLink = `mailto:alain.efast@gmail.com?subject=${subject}&body=${body}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show confirmation
+            alert('Merci pour votre réservation ! Votre client email va s\'ouvrir pour envoyer la demande.');
+            
+            // Optional: Reset form
+            this.reset();
+        });
+
+        // Set minimum date to today
+        document.getElementById('date').min = new Date().toISOString().split('T')[0];
+    </script>
+</body>
+</html>
