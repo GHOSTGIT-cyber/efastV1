@@ -141,7 +141,17 @@
             height: 200px;
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
+            object-fit: cover;
         }
+
+        .vehicle-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
 
         .tesla-image { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23f0f0f0" width="400" height="200"/><text x="200" y="100" text-anchor="middle" font-family="Arial" font-size="16" fill="%23666">Tesla Model S</text></svg>'); }
         .bmw-image { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23f0f0f0" width="400" height="200"/><text x="200" y="100" text-anchor="middle" font-family="Arial" font-size="16" fill="%23666">BMW Série 1</text></svg>'); }
@@ -351,7 +361,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="LogoE-fast.png" alt="e-fast & Girly-car VTC PREMIUM" style="height: 60px; width: auto;">
+                    <img src="images/LogoE-fast.png" alt="E-fast" style="height: 60px;width: auto;" >                     E-fast & Girly-car VTC PREMIUM
                 </div>
                 <div class="contact-info">
                     <a href="tel:0609548128" class="contact-item">📞 06 09 54 81 28</a>
@@ -365,7 +375,7 @@
     <section class="container">
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-title">e-fast VTC</div>
+                <div class="service-title">E-fast VTC</div>
                 <div class="service-subtitle">100% électrique & écologique</div>
                 <div class="service-description">
                     Service VTC Premium<br>
@@ -402,7 +412,7 @@
             <h2 class="section-title">Notre Flotte de Véhicules Premium</h2>
             <div class="vehicles-grid">
                 <div class="vehicle-card">
-                    <div class="vehicle-image tesla-image"></div>
+                    <div class="vehicle-image tesla-image"><img src="images/TeslaGris.png" ></div>
                     <div class="vehicle-info">
                         <div class="vehicle-name">Tesla – MG4 – MG5 - Marvel</div>
                         <div class="vehicle-platform">Tarif plateforme Uber – Bolt -Girly-car</div>
@@ -410,7 +420,7 @@
                 </div>
 
                 <div class="vehicle-card">
-                    <div class="vehicle-image bmw-image"></div>
+                    <div class="vehicle-image bmw-image"><img src="images/BmwSerie2.png"></div>
                     <div class="vehicle-info">
                         <div class="vehicle-name">BMW</div>
                         <div class="vehicle-platform">Tarif plateforme Uber – Bolt -Girly-car</div>
@@ -418,7 +428,7 @@
                 </div>
 
                 <div class="vehicle-card">
-                    <div class="vehicle-image mercedes-image"></div>
+                    <div class="vehicle-image mercedes-image"><img src="images/Mercedes.png"></div>
                     <div class="vehicle-info">
                         <div class="vehicle-name">Mercedes</div>
                         <div class="vehicle-platform">Tarif plateforme Uber – Bolt -Girly-car</div>
@@ -426,7 +436,7 @@
                 </div>
 
                 <div class="vehicle-card">
-                    <div class="vehicle-image mg4-image"></div>
+                    <div class="vehicle-image mg4-image"><img src="images/MG5 blanc.png"></div>
                     <div class="vehicle-info">
                         <div class="vehicle-name">MG4</div>
                         <div class="vehicle-platform">Tarif plateforme Uber – Bolt -Girly-car</div>
@@ -446,10 +456,11 @@
                 
                 <!-- Girly-Car Service -->
                 <div style="background: #ffffff; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
-                    <!-- PHOTO GIRLY-CAR À REMPLACER ICI -->
+                        
                     <div style="width: 100%; height: 250px; background: linear-gradient(45deg, #ff69b4, #ffffff); display: flex; align-items: center; justify-content: center; border: 3px dashed #4a90e2; position: relative;">
+                        
                         <div style="text-align: center; color: #2c5f3f; font-weight: bold; font-size: 16px;">
-                            📸 REMPLACER PAR PHOTO<br>GIRLY-CAR<br>(Tesla rose/blanche)
+                           <img src="images/GirlyCar.png" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
                         </div>
                     </div>
                     <div style="padding: 25px; text-align: center;">
@@ -461,10 +472,10 @@
 
                 <!-- Tourism Bentley Service -->
                 <div style="background: #ffffff; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
-                    <!-- PHOTO BENTLEY À REMPLACER ICI -->
+                    
                     <div style="width: 100%; height: 250px; background: linear-gradient(45deg, #2c5f3f, #4a90e2); display: flex; align-items: center; justify-content: center; border: 3px dashed #4a90e2; position: relative;">
                         <div style="text-align: center; color: white; font-weight: bold; font-size: 16px;">
-                            📸 REMPLACER PAR PHOTO<br>BENTLEY GT<br>(Verte comme sur l'image)
+                            <img src="images/bentley.png" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
                         </div>
                     </div>
                     <div style="padding: 25px; text-align: center;">
