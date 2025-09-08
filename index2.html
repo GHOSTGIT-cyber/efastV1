@@ -331,7 +331,7 @@
 
         .photo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
@@ -558,7 +558,20 @@
             font-size: 1.1em;
             color: #666;
         }
+        /* Version responsive pour petits écrans */
+        @media (max-width: 768px) {
+            .impact-grid {
+                grid-template-columns: repeat(2, 1fr);  /* 2x2 sur mobile */
+                gap: 20px;
+            }
+        }
 
+        @media (max-width: 480px) {
+            .impact-grid {
+                grid-template-columns: 1fr;  /* 1 colonne sur très petits écrans */
+                gap: 15px;
+            }
+        }
         /* Services Section */
         .services-section {
             padding: 80px 30px;
@@ -838,7 +851,7 @@
                         <path d="M5,11L6.5,6.5H17.5L19,11M17.5,16A1.5,1.5 0 0,1 16,14.5A1.5,1.5 0 0,1 17.5,13A1.5,1.5 0 0,1 19,14.5A1.5,1.5 0 0,1 17.5,16M6.5,16A1.5,1.5 0 0,1 5,14.5A1.5,1.5 0 0,1 6.5,13A1.5,1.5 0 0,1 8,14.5A1.5,1.5 0 0,1 6.5,16M18.92,6C18.72,5.42 18.16,5 17.5,5H6.5C5.84,5 5.28,5.42 5.08,6L3,12V20A1,1 0 0,0 4,21H5A1,1 0 0,0 6,20V19H18V20A1,1 0 0,0 19,21H20A1,1 0 0,0 21,20V12L18.92,6Z"/>
                     </svg>
                 </div>
-                <div class="logo-text">e<span>-</span>Fast</div>
+                <div class="logo-text">E<span>-</span>Fast: Tourisme</div>
             </div>
             <ul class="nav-links">
                 <li><a href="#accueil">Accueil</a></li>
@@ -924,6 +937,17 @@
                     <p class="photo-desc">Break familial spacieux • 400km d'autonomie • Grand coffre</p>
                 </div>
             </div>
+
+            <div class="photo-placeholder">
+                <div class="photo-area"><img src="images/MG5.png" alt="MG5">
+                    
+                </div>
+                <div class="photo-info">
+                    <h3 class="photo-title">MG Marvel</h3>
+                    <p class="photo-desc">Break familial spacieux • 400km d'autonomie • Grand coffre</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -934,7 +958,7 @@
         <div class="fleet-carousel">
             <div class="car-showcase">
                 <div class="car-card">
-                    <div class="car-image-placeholder luxury"> <img src="images/Bentley.png" alt="bentley">
+                    <div class="car-image-placeholder luxury"> <img src="images/Bentley2.png" alt="bentley">
                         
                         <span class="luxury-label">LUXE PREMIUM</span>
                     </div>
