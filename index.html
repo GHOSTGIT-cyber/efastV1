@@ -353,6 +353,38 @@
                 font-size: 24px;
             }
         }
+         .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+            align-items: center
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #4CAF50, #d4af37);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
     </style>
 </head>
 <body>
@@ -361,12 +393,21 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="images/LogoE-fast.png" alt="E-fast" style="height: 60px;width: auto;" >                     E-fast & Girly-car VTC PREMIUM
+                    <img src="images/LogoE-fast.png" alt="E-fast" style="height: 60px;width: auto;" >   
+                                  E-fast & Girly-car VTC PREMIUM
+                                   <ul class="nav-links">
+                                        <li><a href="#accueil">Accueil</a></li>
+                                        <li><a href="#flotte">Notre Flotte</a></li>
+                                        <li><a href="#services">Services</a></li>
+                                        <li><a href="#tarifs">Tarifs</a></li>
+                                        <li><a href="#contact">Contact</a></li>
+                                        <li><a href="#reservation" class="btn-reservation">Réserver</a></li>
+                                    </ul>
                 </div>
-                <div class="contact-info">
+               <!-- <div class="contact-info">
                     <a href="tel:0609548128" class="contact-item">📞 06 09 54 81 28</a>
                     <a href="mailto:alain.efast@gmail.com" class="contact-item">✉️ alain.efast@gmail.com</a>
-                </div>
+                </div>-->
             </div>
         </div>
     </header>
