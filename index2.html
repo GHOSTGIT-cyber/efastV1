@@ -350,7 +350,7 @@
         }
 
         .vehicle-platform {
-            color: #FFD700;
+            color: #000000;
             font-size: 14px;
             font-weight: 600;
         }
@@ -717,6 +717,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#girlycar">Girly Car</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#tarifs">Tarifs</a>
@@ -1171,33 +1174,70 @@
     </section>
 
     <!-- Partenaires avec Girly Car -->
-    <section class="section-luxury" style="padding: 80px 0;">
+    <section id="girlycar" class="section-luxury" style="
+        padding: 80px 0;
+        background: 
+            linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+            url('images/girlycar3.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    ">
         <div class="container">
-            
             <div class="text-center mb-5">
                 <h3 class="h2 mb-4" data-aos="fade-up">Nos Partenaires de Confiance</h3>
             </div>
-            <div class="row justify-content-center g-4">
-                <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="glass-card text-center py-4">
-                        <h5 class="mb-0 text-dark">Uber</h5>
+            
+            <div class="row align-items-center">
+                <!-- Partenaires à gauche -->
+                <div class="col-lg-6">
+                    <div class="row justify-content-center g-4">
+                        
+                        <div class="col-lg-4 col-md-6 col-6" data-aos="fade-up" data-aos-delay="400">
+                            <div class="glass-card text-center py-4">
+                                <a href="https://www.girly-car.com/" target="_blank" style="text-decoration: none;">
+                                    <h5 class="mb-0" style="color: #ff1493;">Girly Car</h5>
+                                    <small class="text-muted">Courses Premium</small>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="glass-card text-center py-4">
-                        <h5 class="mb-0" style="color: #ff1493;">Girly Car</h5>
-                        <small class="text-muted">Courses Premium</small>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="600">
-                    <div class="glass-card text-center py-4">
-                        <h5 class="mb-0" style="color: #00d46a;">Bolt</h5>
+                
+                <!-- Texte Girly Car à droite -->
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="800">
+                    <div class="glass-card p-4">
+                        <h4 style="color: #ff1493; margin-bottom: 20px;">
+                            <i class="fas fa-venus me-2"></i>Girly Car - Sécurité & Confiance
+                        </h4>
+                        <p style="color: #fff; line-height: 1.6;">
+                            <strong>Service VTC spécialisé</strong> pour femmes, couples et familles avec enfants. 
+                            Nos chauffeurs femmes ou hommes vertueux offrent un environnement sûr et bienveillant.
+                        </p>
+                        <ul style="color: #fff; margin: 20px 0;">
+                            <li><i class="fas fa-shield-alt me-2" style="color: #ff1493;"></i>Sécurité garantie</li>
+                            <li><i class="fas fa-heart me-2" style="color: #ff1493;"></i>Approche bienveillante</li>
+                            <li><i class="fas fa-baby me-2" style="color: #ff1493;"></i>Spécialiste familles</li>
+                            <li><i class="fas fa-star me-2" style="color: #ff1493;"></i>Service premium</li>
+                        </ul>
+                        <a href="https://www.girly-car.com/" target="_blank" class="btn" style="
+                            background: linear-gradient(135deg, #ff1493, #ff69b4);
+                            color: white;
+                            border-radius: 25px;
+                            padding: 10px 25px;
+                            font-weight: bold;
+                            text-decoration: none;
+                            display: inline-block;
+                            margin-top: 15px;
+                        ">
+                            <i class="fas fa-external-link-alt me-2"></i>Découvrir Girly Car
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Tarifs Transparents -->
     <section id="tarifs" class="section-luxury">
         <div class="container">
