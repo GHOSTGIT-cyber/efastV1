@@ -699,6 +699,69 @@
     
         }
     </style>
+
+    <!-- librairie pour robot google -->
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "TaxiService",
+        "name": "eFast VTC",
+        "description": "Service de chauffeur VTC premium, 100% électrique et de luxe sur la Côte d'Azur (Alpes-Maritimes, 06). Spécialiste des transferts aéroport Nice, Cannes, Monaco et des mises à disposition.",
+        "image": "images/LogoE-fast.png",
+        "telephone": "+33493464366",
+        "email": "alain.efastvtc@gmail.com",
+        "url": "https://www.efast-vtc.com", // <-- REMPLACEZ PAR VOTRE VRAI NOM DE DOMAINE
+        "serviceType": "VTC, Chauffeur privé, Transport de personnes",
+        "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Alpes-Maritimes",
+            "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Nice",
+            "addressRegion": "Provence-Alpes-Côte d'Azur",
+            "addressCountry": "FR"
+            }
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "eFast VTC"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Services VTC",
+            "itemListElement": [
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                "@type": "Service",
+                "name": "Transfert Aéroport Nice"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                "@type": "Service",
+                "name": "VTC de Luxe (Bentley)"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                "@type": "Service",
+                "name": "VTC Électrique (Tesla, MG)"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Girly Car - Transport sécurisé pour femmes et enfants"
+                }
+            }
+            ]
+        }
+        }
+        </script>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70">
