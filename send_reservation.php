@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 // Configuration email - AUCUN MOT DE PASSE NÉCESSAIRE
-$destinataire = 'bakabi06@gmail.com'; // Adresse qui recevra les réservations
+$destinataire = 'alain.efastvtc@gmail.com'; // Adresse qui recevra les réservations
 $expediteur_email = 'noreply@' . $_SERVER['HTTP_HOST']; // Utilise votre domaine automatiquement
 $expediteur_nom = 'e-Fast VTC - Réservations';
 
