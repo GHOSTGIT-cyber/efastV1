@@ -13,13 +13,13 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
-    <!-- Google Fonts - Luxueux -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- AOS Animation -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     
-    <!-- Custom Luxury Styles -->
+    <!-- Custom Mobile-First Styles -->
     <style>
         :root {
             --luxury-gold: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00);
@@ -28,8 +28,8 @@
             --eco-gradient: linear-gradient(135deg, #4CAF50, #8BC34A, #66BB6A);
             --glass-bg: rgba(255, 255, 255, 0.1);
             --glass-border: rgba(255, 255, 255, 0.2);
-            --shadow-luxury: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            --shadow-gold: 0 20px 40px rgba(255, 215, 0, 0.3);
+            --shadow-luxury: 0 15px 35px -12px rgba(0, 0, 0, 0.4);
+            --shadow-gold: 0 15px 30px rgba(255, 215, 0, 0.25);
         }
 
         * {
@@ -38,15 +38,20 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
             background: #000;
             color: #fff;
             overflow-x: hidden;
             line-height: 1.6;
+            font-size: clamp(14px, 2.5vw, 16px);
         }
 
-        /* Particles Background */
+        /* MOBILE-FIRST: Particles réduits sur mobile */
         #particles-js {
             position: fixed;
             width: 100%;
@@ -54,154 +59,123 @@
             top: 0;
             left: 0;
             z-index: -1;
-            opacity: 0.3;
+            opacity: 0.2;
         }
 
-        /* Luxury Header with Glassmorphism */
+        /* NAVIGATION MOBILE-OPTIMISÉE */
         .navbar-luxury {
-            background: rgba(0, 0, 0, 0.9) !important;
-            backdrop-filter: blur(20px);
-            border-bottom: 2px solid;
-            border-image: var(--luxury-gold) 1;
-            box-shadow: var(--shadow-luxury);
+            background: rgba(0, 0, 0, 0.95) !important;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--luxury-gold-solid);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            padding: 0.5rem 0;
             transition: all 0.3s ease;
         }
 
         .navbar-luxury.scrolled {
-            background: rgba(0, 0, 0, 0.95) !important;
-            backdrop-filter: blur(30px);
+            background: rgba(0, 0, 0, 0.98) !important;
+            backdrop-filter: blur(20px);
         }
 
         .navbar-brand {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: clamp(1.2rem, 4vw, 2.5rem);
             font-weight: 900;
             background: var(--luxury-gold);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            height: clamp(40px, 8vw, 60px);
+            width: auto;
+            margin-right: 10px;
+            object-fit: contain;
         }
 
         .nav-link {
             color: #fff !important;
-            font-weight: 600;
-            position: relative;
+            font-weight: 500;
+            font-size: clamp(14px, 2.5vw, 16px);
+            padding: 0.5rem 0.75rem !important;
             transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--luxury-gold);
-            transition: width 0.3s ease;
         }
 
         .nav-link:hover {
             color: #FFD700 !important;
-            transform: translateY(-2px);
-        }
-
-        .nav-link:hover::before {
-            width: 100%;
+            transform: translateY(-1px);
         }
 
         .btn-luxury {
             background: var(--luxury-gold);
             border: none;
             color: #000;
-            font-weight: 800;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 12px 30px;
-            border-radius: 50px;
+            letter-spacing: 0.5px;
+            padding: clamp(8px, 2vw, 12px) clamp(15px, 4vw, 25px);
+            border-radius: 25px;
             transition: all 0.3s ease;
             box-shadow: var(--shadow-gold);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-luxury::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn-luxury:hover::before {
-            left: 100%;
+            font-size: clamp(12px, 2.5vw, 14px);
         }
 
         .btn-luxury:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 25px 50px rgba(255, 215, 0, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.4);
             color: #000;
         }
 
-        /* Hero Section - AVEC BACKGROUND-IMAGE ACTIF */
+        /* HERO SECTION MOBILE-FIRST */
         .hero-luxury {
             height: 100vh;
+            min-height: 600px;
             background: 
-                linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
                 url('images/banniere-hero2.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed;
+            background-attachment: scroll; /* Fixed sur mobile cause des problèmes */
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
         }
 
-        .hero-bg-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-
         .hero-content {
             position: relative;
             z-index: 2;
+            width: 100%;
         }
 
         .luxury-badge {
             display: inline-block;
             background: var(--glass-bg);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border);
             color: #FFD700;
-            padding: 15px 30px;
-            border-radius: 50px;
+            padding: clamp(10px, 3vw, 15px) clamp(15px, 4vw, 25px);
+            border-radius: 30px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: clamp(12px, 2.5vw, 16px);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
+            letter-spacing: 1px;
+            margin-bottom: clamp(15px, 4vw, 25px);
             box-shadow: var(--shadow-luxury);
         }
 
         .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 8vw, 8rem);
+            font-size: clamp(2.5rem, 8vw, 6rem);
             font-weight: 900;
             line-height: 0.9;
-            margin-bottom: 30px;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            margin-bottom: clamp(15px, 4vw, 25px);
+            text-shadow: 0 5px 20px rgba(0,0,0,0.8);
+            text-align: center;
         }
 
         .hero-title .luxury-text {
@@ -219,83 +193,122 @@
         }
 
         .hero-subtitle {
-            font-size: 1.5rem;
+            font-size: clamp(1rem, 3vw, 1.4rem);
             font-weight: 300;
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 50px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: clamp(25px, 6vw, 40px);
+            text-align: center;
         }
 
         .eco-features-luxury {
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 50px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: clamp(15px, 4vw, 25px);
+            margin: clamp(25px, 6vw, 40px) 0;
+            justify-items: center;
         }
 
         .eco-feature-luxury {
             background: var(--glass-bg);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border);
-            padding: 20px 30px;
-            border-radius: 20px;
+            padding: clamp(12px, 3vw, 18px) clamp(15px, 4vw, 22px);
+            border-radius: 15px;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: clamp(8px, 2vw, 12px);
             transition: all 0.3s ease;
             box-shadow: var(--shadow-luxury);
+            text-align: center;
+            flex-direction: column;
+            min-width: 120px;
         }
 
         .eco-feature-luxury:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(76, 175, 80, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(76, 175, 80, 0.3);
         }
 
         .eco-icon-luxury {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2rem);
             color: #4CAF50;
         }
 
-        /* Glass Cards */
+        /* SECTIONS RESPONSIVES */
+        .section-luxury {
+            padding: clamp(60px, 12vw, 100px) 0;
+            position: relative;
+        }
+
+        .section-title-luxury {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: clamp(15px, 3vw, 20px);
+            position: relative;
+        }
+
+        .section-title-luxury::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: clamp(60px, 15vw, 100px);
+            height: 3px;
+            background: var(--luxury-gold);
+            border-radius: 2px;
+        }
+
+        .section-subtitle-luxury {
+            text-align: center;
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: rgba(255,255,255,0.8);
+            margin-bottom: clamp(40px, 8vw, 60px);
+        }
+
+        /* CARDS RESPONSIVES */
         .glass-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border);
-            border-radius: 25px;
-            padding: 40px;
+            border-radius: 20px;
+            padding: clamp(20px, 5vw, 35px);
             box-shadow: var(--shadow-luxury);
             transition: all 0.3s ease;
+            height: 100%;
         }
 
         .glass-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 35px 70px rgba(0,0,0,0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
         }
 
-        /* Vehicle Section - 8 cases */
+        /* VEHICLE SECTION */
         .vehicle-section {
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            padding: 50px 0;
+            padding: clamp(40px, 8vw, 60px) 0;
         }
 
         .section-title {
             text-align: center;
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 6vw, 3.5rem);
             font-weight: 800;
             color: #1a1a1a;
-            margin-bottom: 40px;
+            margin-bottom: clamp(25px, 5vw, 35px);
             position: relative;
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -20px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
+            width: clamp(60px, 15vw, 100px);
+            height: 3px;
             background: var(--luxury-gold);
             border-radius: 2px;
         }
@@ -303,7 +316,7 @@
         .vehicles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            gap: clamp(20px, 4vw, 30px);
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -312,20 +325,20 @@
             background: #ffffff;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
             border: 2px solid transparent;
         }
 
         .vehicle-card:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
             border-color: #FFD700;
             box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
         }
 
         .vehicle-image {
             width: 100%;
-            height: 200px;
+            height: clamp(180px, 40vw, 220px);
             background-size: cover;
             background-position: center;
             position: relative;
@@ -342,39 +355,40 @@
         }
 
         .vehicle-info {
-            padding: 20px;
+            padding: clamp(15px, 4vw, 20px);
         }
 
         .vehicle-name {
             font-weight: bold;
             color: #2c5f3f;
             margin-bottom: 5px;
+            font-size: clamp(16px, 3vw, 18px);
         }
 
         .vehicle-platform {
-            color: #000000;
-            font-size: 14px;
-            font-weight: 600;
+            color: #333;
+            font-size: clamp(13px, 2.5vw, 14px);
+            font-weight: 500;
         }
 
-        /* Fleet Cards Luxury */
+        /* FLEET CARDS LUXURY - MOBILE OPTIMISÉ */
         .fleet-card-luxury {
             background: linear-gradient(145deg, rgba(0,0,0,0.9), rgba(26,26,26,0.9));
             border: 2px solid;
             border-image: var(--luxury-gold) 1;
-            border-radius: 30px;
+            border-radius: 25px;
             overflow: hidden;
             transition: all 0.4s ease;
             box-shadow: var(--shadow-luxury);
         }
 
         .fleet-card-luxury:hover {
-            transform: scale(1.05) rotateY(5deg);
-            box-shadow: 0 40px 80px rgba(255, 215, 0, 0.4);
+            transform: scale(1.02);
+            box-shadow: 0 25px 50px rgba(255, 215, 0, 0.4);
         }
 
         .car-image-container {
-            height: 350px;
+            height: clamp(250px, 50vw, 350px);
             background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
             position: relative;
             display: flex;
@@ -391,17 +405,17 @@
 
         .luxury-label {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 15px;
+            right: 15px;
             background: var(--luxury-gold);
             color: #000;
-            padding: 10px 20px;
-            border-radius: 25px;
+            padding: clamp(6px, 2vw, 10px) clamp(12px, 3vw, 18px);
+            border-radius: 20px;
             font-weight: 800;
-            font-size: 0.9rem;
+            font-size: clamp(11px, 2vw, 14px);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
             z-index: 10;
         }
 
@@ -410,10 +424,9 @@
             color: #000;
         }
 
-        /* Pricing Luxury */
         .price-luxury {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
             font-weight: 800;
             background: var(--luxury-gold);
             -webkit-background-clip: text;
@@ -421,275 +434,33 @@
             background-clip: text;
         }
 
-        /* Impact Section */
-        .impact-counter {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            font-weight: 900;
-            background: var(--eco-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Parallax Sections */
-        .parallax-section {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .parallax-bg-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -2;
-        }
-
-        .parallax-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(26,26,26,0.6));
-            z-index: -1;
-        }
-
-        /* Luxury Form */
-        .form-luxury {
-            background: linear-gradient(145deg, rgba(0,0,0,0.9), rgba(26,26,26,0.8));
-            border: 2px solid;
-            border-image: var(--luxury-gold) 1;
-            border-radius: 30px;
-            padding: 50px;
-            box-shadow: var(--shadow-luxury);
-        }
-
-        .form-control-luxury {
-            background: rgba(255,255,255,0.1);
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            border-radius: 15px;
-            color: #fff;
-            padding: 15px 20px;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-control-luxury:focus {
-            background: rgba(255,255,255,0.15);
-            border-color: #FFD700;
-            box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25);
-            color: #fff;
-        }
-
-        .form-control-luxury::placeholder {
-            color: rgba(255,255,255,0.6);
-        }
-
-        /* Section Spacing */
-        .section-luxury {
-            padding: 120px 0;
-            position: relative;
-        }
-
-        .section-title-luxury {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .section-title-luxury::after {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: var(--luxury-gold);
-            border-radius: 2px;
-        }
-
-        .section-subtitle-luxury {
-            text-align: center;
-            font-size: 1.3rem;
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 80px;
-        }
-
-        /* Placeholder Styles */
-        .image-placeholder {
-            background: #333;
-            border: 3px dashed #FFD700;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #FFD700;
-            font-weight: bold;
-            text-align: center;
-            padding: 20px;
-            min-height: 200px;
-        }
-
-        .change-me {
-            background: rgba(255, 215, 0, 0.1);
-            border: 2px solid #FFD700;
-            color: #FFD700;
-            padding: 10px;
-            border-radius: 10px;
-            margin: 10px 0;
-            text-align: center;
-            font-weight: bold;
-            animation: pulse-gold 2s infinite;
-        }
-
-        @keyframes pulse-gold {
-            0%, 100% { background: rgba(255, 215, 0, 0.1); }
-            50% { background: rgba(255, 215, 0, 0.3); }
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #000;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--luxury-gold);
-            border-radius: 6px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #FFD700;
-        }
-
-        
-        /* Mobile Responsiveness - BLOC AMÉLIORÉ */
-        @media (max-width: 768px) {
-            /* --- Barre de Navigation --- */
-            .navbar-logo {
-                height: 60px; /* On réduit drastiquement la taille du logo sur mobile */
-                max-width: 100px;
-            }
-            .navbar-brand {
-                font-size: 1.5rem; /* On réduit la taille du texte "E-Fast VTC" */
-            }
-            /* On cache le bouton téléphone de la barre principale pour le mettre dans le menu burger */
-            .navbar-luxury .d-flex .btn-outline-light {
-                display: none; 
-            }
-            
-            /* --- Héros --- */
-            .hero-title {
-                font-size: clamp(2.5rem, 12vw, 3.5rem); /* Ajustement pour être percutant mais pas énorme */
-            }
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            /* Permet aux boutons du héros de passer l'un sous l'autre si besoin */
-            .hero-content .mt-5 {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 15px; /* Ajoute un espace entre les boutons empilés */
-            }
-            .hero-content .mt-5 .btn {
-                width: 80%; /* Les boutons prennent plus de largeur pour être faciles à cliquer */
-                margin: 0 !important;
-            }
-            .eco-features-luxury {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px; /* On espace un peu les features empilées */
-            }
-
-            /* --- Titres et Typographie Générale --- */
-            .section-title,
-            .section-title-luxury {
-                font-size: 2.2rem; /* On réduit la taille de tous les titres de section */
-            }
-            .section-subtitle-luxury {
-                font-size: 1rem;
-                margin-bottom: 40px; /* On réduit l'espace sous le sous-titre */
-            }
-            .impact-counter {
-                font-size: 3rem; /* On réduit la taille des compteurs d'impact */
-            }
-
-            /* --- Espacements des Sections --- */
-            .section-luxury {
-                padding: 60px 0; /* On divise par deux les espacements verticaux */
-            }
-            .form-luxury, .glass-card {
-                padding: 25px; /* On réduit le padding des cartes pour laisser plus de place au contenu */
-            }
-            
-            /* --- Cartes et Grilles --- */
-            .fleet-card-luxury:hover {
-                transform: scale(1.02); /* Effet de hover plus subtil */
-            }
-            .vehicles-grid {
-                grid-template-columns: 1fr; /* On force une seule colonne pour la grille de véhicules simples */
-                gap: 20px;
-            }
-            .form-grid {
-                /* La configuration actuelle avec auto-fit est déjà bonne, mais on peut forcer une colonne si besoin */
-                grid-template-columns: 1fr;
-            }
-            
-            /* On force les 3 cartes de prix à passer les unes sous les autres */
-            #tarifs .row > .col-lg-4 {
-                margin-bottom: 20px;
-            }
-        }
-
-        /* Floating Animation */
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Reservation form styling for the uploaded files */
+        /* FORMULAIRE MOBILE-OPTIMISÉ */
         .reservation-section {
             background: linear-gradient(135deg, #FFD700 0%, #2c5f3f 100%);
             color: white;
-            padding: 60px 0;
+            padding: clamp(40px, 8vw, 60px) 0;
         }
 
         .form-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background: rgba(255,255,255,0.95);
-            padding: 40px;
+            padding: clamp(25px, 6vw, 40px);
             border-radius: 20px;
             color: #333;
         }
 
         .form-title {
             text-align: center;
-            font-size: 28px;
+            font-size: clamp(1.5rem, 5vw, 2rem);
             color: #2c5f3f;
-            margin-bottom: 30px;
+            margin-bottom: clamp(20px, 5vw, 30px);
         }
 
         .form-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(15px, 4vw, 20px);
             margin-bottom: 20px;
         }
 
@@ -701,16 +472,17 @@
         .form-group label {
             color: #2c5f3f;
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-size: clamp(14px, 2.5vw, 16px);
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
-            padding: 12px;
+            padding: clamp(12px, 3vw, 15px);
             border: 2px solid #e8f4f8;
-            border-radius: 8px;
-            font-size: 16px;
+            border-radius: 10px;
+            font-size: clamp(14px, 3vw, 16px);
             transition: border-color 0.3s ease;
         }
 
@@ -719,53 +491,182 @@
         .form-group textarea:focus {
             border-color: #FFD700;
             outline: none;
-        }
-
-        .form-full-width {
-            grid-column: 1 / -1;
+            transform: scale(1.02);
         }
 
         .submit-btn {
             background: linear-gradient(135deg, #2c5f3f 0%, #FFD700 100%);
             color: white;
-            padding: 15px 40px;
+            padding: clamp(15px, 4vw, 18px) clamp(20px, 5vw, 30px);
             border: none;
-            border-radius: 10px;
-            font-size: 18px;
+            border-radius: 12px;
+            font-size: clamp(16px, 3vw, 18px);
             font-weight: bold;
             cursor: pointer;
             transition: transform 0.3s ease;
             width: 100%;
+            min-height: 50px;
         }
 
         .submit-btn:hover {
             transform: translateY(-2px);
         }
 
-        /* Photo placeholder for reservation */
-        .reservation-photo-placeholder {
-            height: 300px;
-            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
-            border: 3px dashed #FFD700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-weight: bold;
-            border-radius: 15px;
-            margin-bottom: 30px;
+        /* TARIFS SECTION MOBILE-OPTIMISÉE */
+        #tarifs .glass-card {
+            background: #ffffff;
+            color: #333;
+            border: 2px solid #e9ecef;
+            margin-bottom: 20px;
         }
-        .navbar-logo {
-            height: 150px;
-            width: auto;
-            max-width: 150px;
-            margin-right: 15px;
-            object-fit: contain;
-    
+
+        #tarifs h3 {
+            color: #333 !important;
+            font-size: clamp(18px, 4vw, 22px);
+        }
+
+        #tarifs h5 {
+            color: #2c5f3f !important;
+            font-size: clamp(14px, 3vw, 16px);
+        }
+
+        #tarifs .list-unstyled li {
+            font-size: clamp(13px, 2.5vw, 15px);
+            color: #333 !important;
+            padding: 8px 0;
+        }
+
+        /* IMPACT COUNTERS */
+        .impact-counter {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 900;
+            background: var(--eco-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* GIRLY CAR SECTION */
+        #girlycar {
+            padding: clamp(40px, 8vw, 60px) 0;
+            background: 
+                linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+                url('images/girlycar3.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* MOBILE SPECIFIC ADJUSTMENTS */
+        @media (max-width: 768px) {
+            /* Navigation mobile */
+            .navbar-toggler {
+                border: 1px solid #FFD700;
+                padding: 4px 8px;
+            }
+
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23FFD700' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            }
+
+            /* Hero adjustements */
+            .hero-luxury {
+                background-attachment: scroll;
+                min-height: 90vh;
+            }
+
+            .eco-features-luxury {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* Buttons plus grands pour mobile */
+            .btn {
+                min-height: 44px;
+                font-size: 16px !important;
+            }
+
+            /* Cards adaptées */
+            .vehicles-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            /* Formulaire mobile */
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Parallax désactivé sur mobile */
+            .parallax-section {
+                background-attachment: scroll !important;
+            }
+
+            /* Reduction des animations sur mobile */
+            .fleet-card-luxury:hover {
+                transform: scale(1.01);
+            }
+
+            /* Amélioration des touch targets */
+            .nav-link {
+                padding: 12px 16px !important;
+                margin: 4px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+
+            .hero-title {
+                font-size: clamp(2rem, 10vw, 3rem);
+            }
+
+            .eco-features-luxury {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .section-luxury {
+                padding: 40px 0;
+            }
+
+            /* Réduire les icônes sur très petits écrans */
+            .fa-3x, .fa-4x {
+                font-size: 2rem !important;
+            }
+        }
+
+        /* Amélioration de l'accessibilité */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Optimisation des images */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Performance: Réduction des ombres sur mobile */
+        @media (max-width: 768px) {
+            .glass-card {
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            }
+
+            .vehicle-card {
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            }
         }
     </style>
 
-    <!-- librairie pour robot google -->
+    <!-- Schema.org pour le SEO -->
     <script type="application/ld+json">
         {
         "@context": "https://schema.org",
@@ -775,7 +676,7 @@
         "image": "images/LogoE-fast.png",
         "telephone": "+33493464366",
         "email": "alain.efastvtc@gmail.com",
-        "url": "https://www.efast-vtc.com", // <-- REMPLACEZ PAR VOTRE VRAI NOM DE DOMAINE
+        "url": "https://www.efast-vtc.com",
         "serviceType": "VTC, Chauffeur privé, Transport de personnes",
         "areaServed": {
             "@type": "AdministrativeArea",
@@ -826,7 +727,7 @@
             ]
         }
         }
-        </script>
+    </script>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70">
@@ -834,13 +735,14 @@
     <!-- Particles Background -->
     <div id="particles-js"></div>
 
-    <!-- Navigation -->
+    <!-- Navigation Mobile-First -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-luxury fixed-top" id="navbar">
         <div class="container">
             <a class="navbar-brand" href="#home">
-                <img src="images/LogoE-fast.png" alt="E-fast Logo" class="navbar-logo"> EFast-VTC
+                <img src="images/LogoE-fast.png" alt="E-fast Logo" class="navbar-logo"> 
+                <span>E-Fast VTC</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -861,41 +763,29 @@
                         <a class="nav-link" href="#tarifs">Tarifs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#recrutement">Recrutement</a>
+                        <a class="nav-link" href="#recrutement">Jobs</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
-                    <li class="nav-item d-lg-none">
-                         <a href="tel:0493464366" class="nav-link">
-                            <i class="fas fa-phone me-2"></i> Appeler 04 93 46 43 66
-                        </a>
-                    </li>
                 </ul>
-                <div class="d-flex">
+                <div class="d-flex flex-column flex-lg-row gap-2">
                     <a href="#reservation" class="btn btn-luxury">
                         <i class="fas fa-calendar-plus me-2"></i>Réserver
                     </a>
-                    <a href="tel:0493464366" class="btn btn-outline-light ms-3 d-none d-lg-block">
+                    <a href="tel:0493464366" class="btn btn-outline-light">
                         <i class="fas fa-phone me-2"></i>04 93 46 43 66
                     </a>
-                </div>  
+                </div>
             </div>
         </div>
     </nav>
 
-
-    <!-- Hero Section -->
+    <!-- Hero Section Mobile-Optimisé -->
     <section id="home" class="hero-luxury">
-        <!-- Image de fond bannière ACTIVE -->
-        <img src="images/banniere-hero2.png" alt="Côte d'Azur" class="hero-bg-image">
-        
-        <!-- Overlay pour contraste du texte -->
-        <div class="hero-overlay"></div>
-        
         <div class="container">
-            <div class="row justify-content-center text-center hero-content">
-                <div class="col-lg-10">
+            <div class="row justify-content-center hero-content">
+                <div class="col-12">
                     <div class="luxury-badge floating" data-aos="fade-down">
                         <i class="fas fa-leaf me-2"></i>100% ÉLECTRIQUE & ÉCOLOGIQUE
                     </div>
@@ -926,11 +816,11 @@
                         </div>
                     </div>
 
-                    <div class="mt-5" data-aos="fade-up" data-aos-delay="800">
-                        <a href="#reservation" class="btn btn-luxury btn-lg me-3">
+                    <div class="mt-4 text-center" data-aos="fade-up" data-aos-delay="800">
+                        <a href="#reservation" class="btn btn-luxury btn-lg me-2 mb-2">
                             <i class="fas fa-calendar-check me-2"></i>Réserver Maintenant
                         </a>
-                        <a href="#fleet" class="btn btn-outline-light btn-lg">
+                        <a href="#fleet" class="btn btn-outline-light btn-lg mb-2">
                             <i class="fas fa-car me-2"></i>Découvrir la Flotte
                         </a>
                     </div>
@@ -939,14 +829,14 @@
         </div>
     </section>
 
-    <!-- Vehicle Gallery Section - 8 cases -->
+    <!-- Vehicle Gallery Section Mobile-Optimisée -->
     <section class="vehicle-section" id="fleet">
         <div class="container">
             <h2 class="section-title">Notre Flotte de Véhicules VTC Premium dans le 06</h2>
             <div class="vehicles-grid">
                 <div class="vehicle-card">
                     <div class="vehicle-image">
-                        <img src="images/TeslaGris.png" alt="Tesla">
+                        <img src="images/TeslaGris.png" alt="Tesla VTC électrique Nice" loading="lazy">
                     </div>
                     <div class="vehicle-info">
                         <div class="vehicle-name">Tesla</div>
@@ -956,7 +846,7 @@
 
                 <div class="vehicle-card">
                     <div class="vehicle-image">
-                        <img src="images/BmwSerie2.png" alt="BMW">
+                        <img src="images/BmwSerie2.png" alt="BMW VTC Nice Cannes" loading="lazy">
                     </div>
                     <div class="vehicle-info">
                         <div class="vehicle-name">BMW</div>
@@ -966,7 +856,7 @@
 
                 <div class="vehicle-card">
                     <div class="vehicle-image">
-                        <img src="images/Mercedes.png" alt="Mercedes">
+                        <img src="images/Mercedes.png" alt="Mercedes VTC luxe Monaco" loading="lazy">
                     </div>
                     <div class="vehicle-info">
                         <div class="vehicle-name">Mercedes</div>
@@ -976,7 +866,7 @@
 
                 <div class="vehicle-card">
                     <div class="vehicle-image">
-                        <img src="images/MG5 blanc.png" alt="MG5">
+                        <img src="images/MG5 blanc.png" alt="MG5 électrique VTC" loading="lazy">
                     </div>
                     <div class="vehicle-info">
                         <div class="vehicle-name">MG5</div>
@@ -984,10 +874,9 @@
                     </div>
                 </div>
 
-                <!-- Nouvelles cases -->
                 <div class="vehicle-card">
                     <div class="vehicle-image">
-                        <img src="images/hondainsight.png" alt="Honda Insight">
+                        <img src="images/hondainsight.png" alt="Honda Insight VTC écologique" loading="lazy">
                     </div>
                     <div class="vehicle-info">
                         <div class="vehicle-name">Honda Insight</div>
@@ -997,7 +886,7 @@
 
                 <div class="vehicle-card">
                     <div class="vehicle-image">
-                        <img src="images/FordMondeo.png" alt="Ford Mondeo">
+                        <img src="images/FordMondeo.png" alt="Ford Mondeo VTC" loading="lazy">
                     </div>
                     <div class="vehicle-info">
                         <div class="vehicle-name">Ford Mondeo</div>
@@ -1007,7 +896,7 @@
 
                 <div class="vehicle-card">
                     <div class="vehicle-image">
-                        <img src="images/lexus.png" alt="Lexus">
+                        <img src="images/lexus.png" alt="Lexus VTC premium" loading="lazy">
                     </div>
                     <div class="vehicle-info">
                         <div class="vehicle-name">Lexus</div>
@@ -1017,7 +906,7 @@
 
                 <div class="vehicle-card">
                     <div class="vehicle-image">
-                        <img src="images/GirlyCar.png" alt="Girly Car">
+                        <img src="images/GirlyCar.png" alt="Girly Car transport femmes enfants" loading="lazy">
                     </div>
                     <div class="vehicle-info">
                         <div class="vehicle-name">Girly Car</div>
@@ -1040,10 +929,10 @@
 
             <div class="row g-4">
                 <!-- Bentley -->
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="fleet-card-luxury h-100">
                         <div class="car-image-container">
-                            <img src="images/bentley3.png" alt="Bentley">
+                            <img src="images/bentley3.png" alt="Bentley Continental GT VTC luxe Monaco" loading="lazy">
                             <div class="luxury-label">
                                 <i class="fas fa-crown me-2"></i>LUXE PREMIUM
                             </div>
@@ -1080,10 +969,10 @@
                 </div>
 
                 <!-- Tesla/Électrique -->
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="500">
                     <div class="fleet-card-luxury h-100">
                         <div class="car-image-container">
-                            <img src="images/recrutement.png" alt="Flotte électrique">
+                            <img src="images/recrutement.png" alt="Flotte électrique VTC Tesla MG" loading="lazy">
                             <div class="luxury-label eco-label">
                                 <i class="fas fa-leaf me-2"></i>100% ÉLECTRIQUE
                             </div>
@@ -1120,36 +1009,36 @@
                 </div>
             </div>
 
-            <!-- Galerie Photos -->
+            <!-- Galerie Photos Mobile-Optimisée -->
             <div class="row mt-5">
                 <div class="col-12" data-aos="fade-up">
                     <h3 class="h2 text-center mb-5">Galerie Photos</h3>
                 </div>
                 
-                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-12 col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="glass-card h-100">
-                        <div class="mb-3" style="height: 200px; overflow: hidden; border-radius: 15px;">
-                            <img src="images/Tesla S.png" alt="Tesla Model S" class="w-100 h-100" style="object-fit: cover;">
+                        <div class="mb-3" style="height: clamp(180px, 40vw, 220px); overflow: hidden; border-radius: 15px;">
+                            <img src="images/Tesla S.png" alt="Tesla Model S VTC électrique" class="w-100 h-100" style="object-fit: cover;" loading="lazy">
                         </div>
                         <h5><i class="fas fa-bolt me-2 text-warning"></i>Tesla Model S</h5>
                         <p class="mb-0">Performance électrique ultime • Autopilot • 650km d'autonomie</p>
                     </div>
                 </div>
                 
-                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-12 col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="400">
                     <div class="glass-card h-100">
-                        <div class="mb-3" style="height: 200px; overflow: hidden; border-radius: 15px;">
-                            <img src="images/MG4.png" alt="MG4 Electric" class="w-100 h-100" style="object-fit: cover;">
+                        <div class="mb-3" style="height: clamp(180px, 40vw, 220px); overflow: hidden; border-radius: 15px;">
+                            <img src="images/MG4.png" alt="MG4 Electric VTC écologique" class="w-100 h-100" style="object-fit: cover;" loading="lazy">
                         </div>
                         <h5><i class="fas fa-car me-2 text-success"></i>MG4 Electric</h5>
                         <p class="mb-0">Berline compacte 100% électrique • 450km d'autonomie • WiFi à bord</p>
                     </div>
                 </div>
                 
-                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="600">
+                <div class="col-12 col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="600">
                     <div class="glass-card h-100">
-                        <div class="mb-3" style="height: 200px; overflow: hidden; border-radius: 15px;">
-                            <img src="images/MG5.png" alt="MG5 Electric" class="w-100 h-100" style="object-fit: cover;">
+                        <div class="mb-3" style="height: clamp(180px, 40vw, 220px); overflow: hidden; border-radius: 15px;">
+                            <img src="images/MG5.png" alt="MG5 Electric break familial" class="w-100 h-100" style="object-fit: cover;" loading="lazy">
                         </div>
                         <h5><i class="fas fa-car-side me-2 text-success"></i>MG5 Electric</h5>
                         <p class="mb-0">Break familial spacieux • 400km d'autonomie • Grand coffre</p>
@@ -1159,15 +1048,20 @@
         </div>
     </section>
 
-    <!-- Impact Environnemental Section avec espace Monaco -->
+    <!-- Impact Environnemental Section -->
     <section class="section-luxury parallax-section">
-        <div class="image-placeholder parallax-bg-image" style="height: 100%; display: flex; align-items: center; justify-content: center;">
-            <div class="change-me" style="font-size: 1.5rem; text-align: center;">
-                <img src="images/banniere monaco.png" alt="Côte d'Azur" class="hero-bg-image">
-            </div>
-        </div>
-        
-        <div class="parallax-overlay"></div>
+        <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/banniere monaco.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            z-index: -1;
+        "></div>
         
         <div class="container position-relative">
             <div class="text-center mb-5">
@@ -1178,28 +1072,28 @@
             </div>
 
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
                     <div class="glass-card text-center h-100">
                         <div class="impact-counter" data-counter="0">0</div>
                         <h5 class="mt-3">Émissions CO₂</h5>
                         <p class="mb-0">Avec nos véhicules électriques</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
                     <div class="glass-card text-center h-100">
                         <div class="impact-counter" data-counter="100">0</div>
                         <h5 class="mt-3">% Énergie Verte</h5>
                         <p class="mb-0">Électricité renouvelable</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="700">
+                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="700">
                     <div class="glass-card text-center h-100">
                         <div class="impact-counter" data-counter="-90">0</div>
                         <h5 class="mt-3">% Pollution Sonore</h5>
                         <p class="mb-0">Véhicules silencieux</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="900">
+                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="900">
                     <div class="glass-card text-center h-100">
                         <div class="impact-counter">♻️</div>
                         <h5 class="mt-3">Mobilité Durable</h5>
@@ -1221,10 +1115,10 @@
             </div>
 
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="glass-card text-center h-100">
                         <div class="mb-4">
-                            <i class="fas fa-plane fa-4x mb-3" style="background: var(--luxury-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                            <i class="fas fa-plane fa-3x mb-3" style="background: var(--luxury-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
                         </div>
                         <h4>Transfert Aéroport Nice</h4>
                         <p>Service écologique pour l'aéroport. Véhicules électriques disponibles 24/7.</p>
@@ -1236,10 +1130,10 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
                     <div class="glass-card text-center h-100">
                         <div class="mb-4">
-                            <i class="fas fa-map-marked-alt fa-4x mb-3" style="background: var(--luxury-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                            <i class="fas fa-map-marked-alt fa-3x mb-3" style="background: var(--luxury-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
                         </div>
                         <h4>Circuit Touristique</h4>
                         <p>Monaco, Cannes, Saint-Tropez en Bentley ou Tesla. Expérience unique garantie.</p>
@@ -1251,10 +1145,10 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
+                <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="700">
                     <div class="glass-card text-center h-100">
                         <div class="mb-4">
-                            <i class="fas fa-film fa-4x mb-3" style="background: var(--luxury-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                            <i class="fas fa-film fa-3x mb-3" style="background: var(--luxury-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
                         </div>
                         <h4>Festival de Cannes</h4>
                         <p>Service VIP éco-responsable. Arrivez en style avec nos véhicules premium.</p>
@@ -1266,10 +1160,10 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="900">
+                <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="900">
                     <div class="glass-card text-center h-100">
                         <div class="mb-4">
-                            <i class="fas fa-briefcase fa-4x mb-3" style="background: var(--luxury-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                            <i class="fas fa-briefcase fa-3x mb-3" style="background: var(--luxury-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
                         </div>
                         <h4>Business Écologique</h4>
                         <p>Déplacements professionnels zéro émission. Nice, Sophia Antipolis, Monaco.</p>
@@ -1281,10 +1175,10 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="1100">
+                <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="1100">
                     <div class="glass-card text-center h-100">
                         <div class="mb-4">
-                            <i class="fas fa-cocktail fa-4x mb-3" style="background: var(--luxury-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                            <i class="fas fa-cocktail fa-3x mb-3" style="background: var(--luxury-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
                         </div>
                         <h4>Soirées Premium</h4>
                         <p>Casino Monte-Carlo, clubs privés. Service 24/7 en véhicule silencieux.</p>
@@ -1296,10 +1190,10 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="1300">
+                <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="1300">
                     <div class="glass-card text-center h-100">
                         <div class="mb-4">
-                            <i class="fas fa-users fa-4x mb-3" style="background: var(--luxury-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                            <i class="fas fa-users fa-3x mb-3" style="background: var(--luxury-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
                         </div>
                         <h4>Famille & Confort</h4>
                         <p>Véhicules spacieux électriques. Sièges bébé disponibles sur demande.</p>
@@ -1313,96 +1207,98 @@
             </div>
         </div>
     </section>
-    <!-- Partenaires avec Girly Car -->
+
+    <!-- Girly Car Section Mobile-Optimisée -->
     <section id="girlycar" class="section-luxury" style="
-        padding: 80px 0;
         background: 
-            linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+            linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
             url('images/girlycar3.png');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        background-attachment: scroll;
     ">
         <div class="container">
             <div class="text-center mb-5">
-                <h3 class="h2 mb-4" data-aos="fade-up">Girly Car - Services Spécialisés</h3>
+                <h3 class="section-title-luxury" data-aos="fade-up">Girly Car - Services Spécialisés</h3>
             </div>
             
             <div class="row g-4">
-                <!-- ALCÔVE 1 : Protection Femmes/Couples -->
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                <!-- Protection Femmes/Couples -->
+                <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="glass-card p-4 h-100">
-                        <h4 style="color: #ff1493; margin-bottom: 20px;">
+                        <h4 style="color: #ff1493; margin-bottom: 20px; font-size: clamp(18px, 4vw, 22px);">
                             <i class="fas fa-venus me-2"></i>Girly Car - Sécurité & Confiance
                         </h4>
-                        <p style="color: #fff; line-height: 1.6; margin-bottom: 20px;">
+                        <p style="color: #fff; line-height: 1.6; margin-bottom: 20px; font-size: clamp(14px, 2.5vw, 16px);">
                             <strong>Service VTC spécialisé</strong> pour femmes, couples et familles. 
                             Nos chauffeurs femmes ou hommes vertueux offrent un environnement sûr et bienveillant.
                         </p>
                         <ul style="color: #fff; margin: 15px 0; list-style: none; padding: 0;">
-                            <li style="margin-bottom: 8px;"><i class="fas fa-shield-alt me-2" style="color: #ff1493;"></i>Sécurité garantie</li>
-                            <li style="margin-bottom: 8px;"><i class="fas fa-heart me-2" style="color: #ff1493;"></i>Approche bienveillante</li>
-                            <li style="margin-bottom: 8px;"><i class="fas fa-users me-2" style="color: #ff1493;"></i>Spécialiste couples/familles</li>
+                            <li style="margin-bottom: 8px; font-size: clamp(13px, 2.5vw, 15px);"><i class="fas fa-shield-alt me-2" style="color: #ff1493;"></i>Sécurité garantie</li>
+                            <li style="margin-bottom: 8px; font-size: clamp(13px, 2.5vw, 15px);"><i class="fas fa-heart me-2" style="color: #ff1493;"></i>Approche bienveillante</li>
+                            <li style="margin-bottom: 8px; font-size: clamp(13px, 2.5vw, 15px);"><i class="fas fa-users me-2" style="color: #ff1493;"></i>Spécialiste couples/familles</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- ALCÔVE 2 : Transport Enfants -->
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
+                <!-- Transport Enfants -->
+                <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="500">
                     <div class="glass-card p-4 h-100">
-                        <h4 style="color: #ff1493; margin-bottom: 20px;">
+                        <h4 style="color: #ff1493; margin-bottom: 20px; font-size: clamp(18px, 4vw, 22px);">
                             <i class="fas fa-graduation-cap me-2"></i>Transport Enfants Domicile/École
                         </h4>
-                        <p style="color: #fff; line-height: 1.6; margin-bottom: 20px;">
+                        <p style="color: #fff; line-height: 1.6; margin-bottom: 20px; font-size: clamp(14px, 2.5vw, 16px);">
                             <strong>Service transport avec licence V.T.C.</strong> spécialisé pour le transport scolaire. 
                             Chauffeurs autorisés pour vos enfants.
                         </p>
                         
-                        <!-- FOND ROSE POUR LES FORMULES -->
-                        <div style="background: rgba(255,20,147,0.2); padding: 20px; border-radius: 15px; margin: 20px 0; border: 2px solid #ff1493;">
-                            <h5 style="color: #ff1493; margin-bottom: 15px;">📚 Deux Formules :</h5>
-                            <div style="color: #fff; margin-bottom: 15px;">
+                        <!-- Formules -->
+                        <div style="background: rgba(255,20,147,0.2); padding: clamp(15px, 4vw, 20px); border-radius: 15px; margin: 20px 0; border: 2px solid #ff1493;">
+                            <h5 style="color: #ff1493; margin-bottom: 15px; font-size: clamp(16px, 3vw, 18px);">📚 Deux Formules :</h5>
+                            <div style="color: #fff; margin-bottom: 15px; font-size: clamp(13px, 2.5vw, 15px);">
                                 <strong>🔸 Formule 1 :</strong> Domicile-école<br>
-                                <span style="margin-left: 20px; font-size: 0.9em;">2 fois/jour (Matin - Soir)</span>
+                                <span style="margin-left: 20px; font-size: clamp(12px, 2vw, 14px);">2 fois/jour (Matin - Soir)</span>
                             </div>
-                            <div style="color: #fff;">
+                            <div style="color: #fff; font-size: clamp(13px, 2.5vw, 15px);">
                                 <strong>🔸 Formule 2 :</strong> Domicile-école<br>
-                                <span style="margin-left: 20px; font-size: 0.9em;">4 fois/jour (Matin-Midi-Après-midi-Soir)</span>
+                                <span style="margin-left: 20px; font-size: clamp(12px, 2vw, 14px);">4 fois/jour (Matin-Midi-Après-midi-Soir)</span>
                             </div>
                         </div>
 
                         <ul style="color: #fff; margin: 15px 0; list-style: none; padding: 0;">
-                            <li style="margin-bottom: 8px;"><i class="fas fa-clock me-2" style="color: #ff1493;"></i>Ponctualité garantie</li>
-                            <li style="margin-bottom: 8px;"><i class="fas fa-baby me-2" style="color: #ff1493;"></i>Spécialiste enfants</li>
-                            <li style="margin-bottom: 8px;"><i class="fas fa-car me-2" style="color: #ff1493;"></i>Véhicules sécurisés</li>
+                            <li style="margin-bottom: 8px; font-size: clamp(13px, 2.5vw, 15px);"><i class="fas fa-clock me-2" style="color: #ff1493;"></i>Ponctualité garantie</li>
+                            <li style="margin-bottom: 8px; font-size: clamp(13px, 2.5vw, 15px);"><i class="fas fa-baby me-2" style="color: #ff1493;"></i>Spécialiste enfants</li>
+                            <li style="margin-bottom: 8px; font-size: clamp(13px, 2.5vw, 15px);"><i class="fas fa-car me-2" style="color: #ff1493;"></i>Véhicules sécurisés</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Boutons d'action centrés -->
+            <!-- Boutons d'action -->
             <div class="row mt-4">
                 <div class="col-12 text-center">
-                    <a href="https://www.girly-car.com/" target="_blank" class="btn" style="
+                    <a href="https://www.girly-car.com/" target="_blank" class="btn mb-2 me-2" style="
                         background: linear-gradient(135deg, #ff1493, #ff69b4);
                         color: white;
                         border-radius: 25px;
-                        padding: 10px 25px;
+                        padding: clamp(10px, 3vw, 12px) clamp(20px, 5vw, 25px);
                         font-weight: bold;
                         text-decoration: none;
                         display: inline-block;
-                        margin-right: 10px;
+                        font-size: clamp(14px, 3vw, 16px);
                     ">
                         <i class="fas fa-external-link-alt me-2"></i>Site Girly Car
                     </a>
-                    <a href="tel:0493464366" class="btn" style="
+                    <a href="tel:0493464366" class="btn mb-2" style="
                         background: linear-gradient(135deg, #FFD700, #FFA500);
                         color: #000;
                         border-radius: 25px;
-                        padding: 10px 25px;
+                        padding: clamp(10px, 3vw, 12px) clamp(20px, 5vw, 25px);
                         font-weight: bold;
                         text-decoration: none;
                         display: inline-block;
+                        font-size: clamp(14px, 3vw, 16px);
                     ">
                         <i class="fas fa-phone me-2"></i>04 93 46 43 66
                     </a>
@@ -1411,307 +1307,313 @@
         </div>
     </section>
 
-
-        <!-- Tarifs Transparents -->
-        <section id="tarifs" class="section-luxury">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <h2 class="section-title-luxury" data-aos="fade-up">Tarifs Transparents</h2>
-                    <p class="section-subtitle-luxury" data-aos="fade-up" data-aos-delay="200">
-                        Des prix justes pour une expérience d'exception
-                    </p>
-                    <!-- Phrase commerciale reformulée -->
-                    <div class="alert" style="
-                        background: linear-gradient(135deg, #e3f2fd, #f8f9fa);
-                        border: 2px solid #2196F3;
-                        border-radius: 15px;
-                        padding: 20px;
-                        margin: 30px auto;
-                        max-width: 800px;
-                        color: #1976D2;
-                        font-size: 16px;
-                        font-weight: 500;
-                    " data-aos="fade-up" data-aos-delay="400">
-                        <i class="fas fa-info-circle me-2" style="color: #1976D2;"></i>
-                        <strong style="color: #1976D2;">Tarification intelligente :</strong> 
-                        <span style="color: #333;">
-                            Nos tarifs sont optimisés en temps réel grâce à nos partenariats avec les plateformes Uber, Bolt et Girly-Car, vous garantissant le meilleur prix du marché pour chaque réservation.
-                        </span>
-                    </div>
+    <!-- Tarifs Transparents Mobile-Optimisés -->
+    <section id="tarifs" class="section-luxury">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title-luxury" data-aos="fade-up">Tarifs Transparents</h2>
+                <p class="section-subtitle-luxury" data-aos="fade-up" data-aos-delay="200">
+                    Des prix justes pour une expérience d'exception
+                </p>
+                <!-- Phrase commerciale -->
+                <div class="alert" style="
+                    background: linear-gradient(135deg, #e3f2fd, #f8f9fa);
+                    border: 2px solid #2196F3;
+                    border-radius: 15px;
+                    padding: clamp(15px, 4vw, 20px);
+                    margin: clamp(20px, 5vw, 30px) auto;
+                    max-width: 800px;
+                    color: #1976D2;
+                    font-size: clamp(14px, 2.5vw, 16px);
+                    font-weight: 500;
+                " data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-info-circle me-2" style="color: #1976D2;"></i>
+                    <strong style="color: #1976D2;">Tarification intelligente :</strong> 
+                    <span style="color: #333;">
+                        Nos tarifs sont optimisés en temps réel grâce à nos partenariats avec les plateformes Uber, Bolt et Girly-Car, vous garantissant le meilleur prix du marché pour chaque réservation.
+                    </span>
                 </div>
+            </div>
 
-                <div class="row g-4">
-                    <!-- 1. VÉHICULES ÉLECTRIQUES (en premier) -->
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="glass-card h-100" style="border: 3px solid #4CAF50; background: #ffffff;">
-                            <div class="text-center mb-4">
-                                <div style="background: linear-gradient(135deg, #4CAF50, #66BB6A); color: white; padding: 10px; border-radius: 25px; margin-bottom: 20px; font-weight: bold;">
-                                    ⚡ CHOIX ÉCOLOGIQUE
-                                </div>
-                                <i class="fas fa-leaf fa-3x mb-3" style="color: #4CAF50;"></i>
-                                <h3 style="color: #333;">🌱 Véhicules 100% Électriques</h3>
-                                <p style="color: #666; font-size: 14px;">Tesla • MG4 • MG5</p>
+            <div class="row g-4">
+                <!-- Véhicules Électriques -->
+                <div class="col-12 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card h-100" style="border: 3px solid #4CAF50; background: #ffffff; color: #333;">
+                        <div class="text-center mb-4">
+                            <div style="background: linear-gradient(135deg, #4CAF50, #66BB6A); color: white; padding: clamp(8px, 2vw, 10px); border-radius: 25px; margin-bottom: 20px; font-weight: bold; font-size: clamp(12px, 2.5vw, 14px);">
+                                ⚡ CHOIX ÉCOLOGIQUE
                             </div>
-
-                            <!-- Tarifs Plateformes -->
-                            <div style="background: #e8f5e8; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
-                                <h5 style="color: #2c5f3f; margin-bottom: 15px; text-align: center;">
-                                    📱 Tarifs Plateformes
-                                </h5>
-                                <ul class="list-unstyled">
-                                    <li class="d-flex justify-content-between py-2 border-bottom" style="border-color: #4CAF50 !important;">
-                                        <strong style="color: #333;">Uber / Bolt :</strong>
-                                        <span style="color: #2c5f3f;" class="fs-6 fw-bold">Temps réel</span>
-                                    </li>
-                                    <li class="d-flex justify-content-between py-2">
-                                        <strong style="color: #333;">Girly-Car :</strong>
-                                        <span style="color: #2c5f3f;" class="fs-6 fw-bold">Sur devis</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- Mise à disposition -->
-                            <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
-                                <h5 style="color: #2c5f3f; margin-bottom: 15px; text-align: center;">
-                                    🚗 Mise à Disposition
-                                </h5>
-                                <ul class="list-unstyled">
-                                    <li class="d-flex justify-content-between py-2 border-bottom border-secondary">
-                                        <strong style="color: #333;">Tarif horaire :</strong>
-                                        <span style="color: #2c5f3f;" class="fs-5 fw-bold">70€/h</span>
-                                    </li>
-                                    <li class="d-flex justify-content-between py-2 border-bottom border-secondary">
-                                        <strong style="color: #333;">Demi-journée (4h) :</strong>
-                                        <span style="color: #2c5f3f;" class="fs-5 fw-bold">250€</span>
-                                    </li>
-                                    <li class="d-flex justify-content-between py-2">
-                                        <strong style="color: #333;">Journée (8h) :</strong>
-                                        <span style="color: #2c5f3f;" class="fs-5 fw-bold">450€</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="text-center mt-4">
-                                <a href="#reservation" class="btn btn-success w-100">
-                                    <i class="fas fa-bolt me-2"></i>Choisir Électrique
-                                </a>
-                            </div>
+                            <i class="fas fa-leaf fa-3x mb-3" style="color: #4CAF50;"></i>
+                            <h3 style="color: #333; font-size: clamp(18px, 4vw, 22px);">🌱 Véhicules 100% Électriques</h3>
+                            <p style="color: #666; font-size: clamp(12px, 2.5vw, 14px);">Tesla • MG4 • MG5</p>
                         </div>
-                    </div>
 
-                    <!-- 2. VÉHICULES PREMIUM (en deuxième) -->
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="500">
-                        <div class="glass-card h-100" style="border: 3px solid #6c757d; background: #ffffff;">
-                            <div class="text-center mb-4">
-                                <div style="background: linear-gradient(135deg, #6c757d, #8e8e8e); color: white; padding: 10px; border-radius: 25px; margin-bottom: 20px; font-weight: bold;">
-                                    🏆 PRESTIGE
-                                </div>
-                                <i class="fas fa-car fa-3x mb-3" style="color: #6c757d;"></i>
-                                <h3 style="color: #333;">🚗 Véhicules Premium</h3>
-                                <p style="color: #666; font-size: 14px;">Mercedes • BMW • Lexus</p>
-                            </div>
-
-                            <!-- Tarifs Plateformes -->
-                            <div style="background: #f5f5f5; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
-                                <h5 style="color: #333; margin-bottom: 15px; text-align: center;">
-                                    📱 Tarifs Plateformes
-                                </h5>
-                                <ul class="list-unstyled">
-                                    <li class="d-flex justify-content-between py-2 border-bottom" style="border-color: #6c757d !important;">
-                                        <strong style="color: #333;">Uber Black :</strong>
-                                        <span style="color: #333;" class="fs-6 fw-bold">Temps réel</span>
-                                    </li>
-                                    <li class="d-flex justify-content-between py-2">
-                                        <strong style="color: #333;">Bolt Premium :</strong>
-                                        <span style="color: #333;" class="fs-6 fw-bold">Variable</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- Tarifs Luxe -->
-                            <div style="background: linear-gradient(135deg, #fff3cd, #ffeeba); padding: 15px; border-radius: 10px; margin-bottom: 20px; border: 2px solid #FFD700;">
-                                <h5 style="color: #856404; margin-bottom: 15px; text-align: center;">
-                                    ✨ Tarifs Luxe
-                                </h5>
-                                <ul class="list-unstyled">
-                                    <li class="d-flex justify-content-between py-2 border-bottom" style="border-color: #FFD700 !important;">
-                                        <strong style="color: #856404;">Service Premium :</strong>
-                                        <span style="color: #856404;" class="fs-5 fw-bold">90€/h</span>
-                                    </li>
-                                    <li class="d-flex justify-content-between py-2">
-                                        <strong style="color: #856404;">Événements VIP :</strong>
-                                        <span style="color: #856404;" class="fs-5 fw-bold">120€/h</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- Mise à disposition -->
-                            <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
-                                <h5 style="color: #2c5f3f; margin-bottom: 15px; text-align: center;">
-                                    🚗 Mise à Disposition
-                                </h5>
-                                <ul class="list-unstyled">
-                                    <li class="d-flex justify-content-between py-2 border-bottom border-secondary">
-                                        <strong style="color: #333;">Tarif horaire :</strong>
-                                        <span style="color: #333;" class="fs-5 fw-bold">130€/h</span>
-                                    </li>
-                                    <li class="d-flex justify-content-between py-2 border-bottom border-secondary">
-                                        <strong style="color: #333;">Demi-journée (4h) :</strong>
-                                        <span style="color: #333;" class="fs-5 fw-bold">450€</span>
-                                    </li>
-                                    <li class="d-flex justify-content-between py-2">
-                                        <strong style="color: #333;">Journée (8h) :</strong>
-                                        <span style="color: #333;" class="fs-5 fw-bold">850€</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="text-center mt-4">
-                                <a href="#reservation" class="btn" style="background: #6c757d; color: white; width: 100%;">
-                                    <i class="fas fa-star me-2"></i>Choisir Premium
-                                </a>
-                            </div>
+                        <!-- Tarifs Plateformes -->
+                        <div style="background: #e8f5e8; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                            <h5 style="color: #2c5f3f; margin-bottom: 15px; text-align: center; font-size: clamp(14px, 3vw, 16px);">
+                                📱 Tarifs Plateformes
+                            </h5>
+                            <ul class="list-unstyled">
+                                <li class="d-flex justify-content-between py-2 border-bottom" style="border-color: #4CAF50 !important; font-size: clamp(12px, 2.5vw, 14px);">
+                                    <strong style="color: #333;">Uber / Bolt :</strong>
+                                    <span style="color: #2c5f3f;" class="fw-bold">Temps réel</span>
+                                </li>
+                                <li class="d-flex justify-content-between py-2" style="font-size: clamp(12px, 2.5vw, 14px);">
+                                    <strong style="color: #333;">Girly-Car :</strong>
+                                    <span style="color: #2c5f3f;" class="fw-bold">Sur devis</span>
+                                </li>
+                            </ul>
                         </div>
-                    </div>
 
-                    <!-- 3. BENTLEY (en dernier) -->
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="700">
-                        <div class="glass-card h-100" style="border: 3px solid #FFD700; position: relative; overflow: hidden; background: #ffffff;">
-                            <!-- Badge VIP -->
-                            <div style="
-                                position: absolute;
-                                top: -10px;
-                                right: -10px;
-                                background: linear-gradient(135deg, #ff4444, #ff6b6b);
-                                color: white;
-                                padding: 5px 25px;
-                                border-radius: 15px;
-                                font-size: 12px;
-                                font-weight: bold;
-                                transform: rotate(15deg);
-                                box-shadow: 0 5px 15px rgba(255,68,68,0.3);
-                                z-index: 10;
-                            ">ULTRA LUXE</div>
-                            
-                            <div class="text-center mb-4">
-                                <div style="background: linear-gradient(135deg, #FFD700, #FFA500); color: #000; padding: 10px; border-radius: 25px; margin-bottom: 20px; font-weight: bold;">
-                                    👑 EXCELLENCE
-                                </div>
-                                <i class="fas fa-crown fa-3x mb-3" style="color: #FFD700;"></i>
-                                <h3 style="color: #333;">🏆 Bentley Continental GT</h3>
-                                <p style="color: #666; font-size: 14px;">Le summum du luxe automobile</p>
-                            </div>
+                        <!-- Mise à disposition -->
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                            <h5 style="color: #2c5f3f; margin-bottom: 15px; text-align: center; font-size: clamp(14px, 3vw, 16px);">
+                                🚗 Mise à Disposition
+                            </h5>
+                            <ul class="list-unstyled">
+                                <li class="d-flex justify-content-between py-2 border-bottom border-secondary" style="font-size: clamp(12px, 2.5vw, 14px);">
+                                    <strong style="color: #333;">Tarif horaire :</strong>
+                                    <span style="color: #2c5f3f;" class="fw-bold">70€/h</span>
+                                </li>
+                                <li class="d-flex justify-content-between py-2 border-bottom border-secondary" style="font-size: clamp(12px, 2.5vw, 14px);">
+                                    <strong style="color: #333;">Demi-journée (4h) :</strong>
+                                    <span style="color: #2c5f3f;" class="fw-bold">250€</span>
+                                </li>
+                                <li class="d-flex justify-content-between py-2" style="font-size: clamp(12px, 2.5vw, 14px);">
+                                    <strong style="color: #333;">Journée (8h) :</strong>
+                                    <span style="color: #2c5f3f;" class="fw-bold">450€</span>
+                                </li>
+                            </ul>
+                        </div>
 
-                            <!-- Tarifs Soirée -->
-                            <div style="background: linear-gradient(135deg, #2c5f3f, #4caf50); color: white; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
-                                <h5 style="color: white; margin-bottom: 15px; text-align: center;">
-                                    🌙 Tarif Soirée VIP
-                                </h5>
-                                <div class="text-center">
-                                    <div style="font-size: 14px; margin-bottom: 5px; color: white;">20h00 → 01h00 (5h)</div>
-                                    <div style="font-size: 24px; font-weight: bold; color: white;">300€</div>
-                                    <small style="opacity: 0.9; color: white;">Idéal pour soirées casino</small>
-                                </div>
-                            </div>
-
-                            <!-- Mise à disposition -->
-                            <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
-                                <h5 style="color: #2c5f3f; margin-bottom: 15px; text-align: center;">
-                                    🚗 Mise à Disposition
-                                </h5>
-                                <ul class="list-unstyled">
-                                    <li class="d-flex justify-content-between py-2 border-bottom border-secondary">
-                                        <strong style="color: #333;">Tarif horaire :</strong>
-                                        <span style="color: #856404;" class="fs-5 fw-bold">100€/h</span>
-                                    </li>
-                                    <li class="d-flex justify-content-between py-2 border-bottom border-secondary">
-                                        <strong style="color: #333;">Demi-journée (4h) :</strong>
-                                        <span style="color: #856404;" class="fs-5 fw-bold">300€</span>
-                                    </li>
-                                    <li class="d-flex justify-content-between py-2">
-                                        <strong style="color: #333;">Journée (8h) :</strong>
-                                        <span style="color: #856404;" class="fs-5 fw-bold">500€</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- Services inclus -->
-                            <div style="background: #fff3cd; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #FFD700;">
-                                <h6 style="color: #856404; margin-bottom: 10px; font-weight: bold;">✨ Services inclus :</h6>
-                                <ul style="font-size: 13px; color: #856404; margin: 0; padding-left: 15px;">
-                                    <li>🥂 Champagne offert</li>
-                                    <li>🎩 Chauffeur en costume</li>
-                                    <li>📱 WiFi premium</li>
-                                    <li>🎵 Système audio haut de gamme</li>
-                                </ul>
-                            </div>
-
-                            <div class="text-center mt-4">
-                                <a href="#reservation" class="btn btn-luxury w-100">
-                                    <i class="fas fa-gem me-2"></i>Choisir Bentley
-                                </a>
-                            </div>
+                        <div class="text-center mt-4">
+                            <a href="#reservation" class="btn btn-success w-100" style="font-size: clamp(14px, 3vw, 16px);">
+                                <i class="fas fa-bolt me-2"></i>Choisir Électrique
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Note importante -->
-                <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="900">
-                    <div style="
-                        background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05));
-                        border: 2px solid #FFD700;
-                        border-radius: 15px;
-                        padding: 25px;
-                        max-width: 900px;
-                        margin: 0 auto;
-                    ">
-                        <h4 style="color: #2c5f3f; margin-bottom: 15px;">
-                            <i class="fas fa-shield-alt me-2"></i>Notre Engagement Qualité
-                        </h4>
-                        <p style="color: #b6ba32; margin-bottom: 10px; font-size: 16px; line-height: 1.6;">
-                            <strong style="color: #b6ba32;">Transparence totale :</strong> 
-                            <span style="color: #b6ba32;">
-                                Tous nos tarifs sont fixes et sans surprise. 
-                                Aucun frais caché, aucune majoration de dernière minute.
-                            </span>
-                        </p>
-                        <div class="row mt-4">
-                            <div class="col-md-4 text-center mb-3">
-                                <i class="fas fa-check-circle" style="color: #4CAF50; font-size: 24px;"></i>
-                                <p class="mb-0 mt-2" style="font-size: 14px; color: #333;"><strong>Prix fixe annoncé</strong></p>
+                <!-- Véhicules Premium -->
+                <div class="col-12 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="glass-card h-100" style="border: 3px solid #6c757d; background: #ffffff; color: #333;">
+                        <div class="text-center mb-4">
+                            <div style="background: linear-gradient(135deg, #6c757d, #8e8e8e); color: white; padding: clamp(8px, 2vw, 10px); border-radius: 25px; margin-bottom: 20px; font-weight: bold; font-size: clamp(12px, 2.5vw, 14px);">
+                                🏆 PRESTIGE
                             </div>
-                            <div class="col-md-4 text-center mb-3">
-                                <i class="fas fa-clock" style="color: #2196F3; font-size: 24px;"></i>
-                                <p class="mb-0 mt-2" style="font-size: 14px; color: #333;"><strong>Ponctualité garantie</strong></p>
+                            <i class="fas fa-car fa-3x mb-3" style="color: #6c757d;"></i>
+                            <h3 style="color: #333; font-size: clamp(18px, 4vw, 22px);">🚗 Véhicules Premium</h3>
+                            <p style="color: #666; font-size: clamp(12px, 2.5vw, 14px);">Mercedes • BMW • Lexus</p>
+                        </div>
+
+                        <!-- Tarifs Plateformes -->
+                        <div style="background: #f5f5f5; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                            <h5 style="color: #333; margin-bottom: 15px; text-align: center; font-size: clamp(14px, 3vw, 16px);">
+                                📱 Tarifs Plateformes
+                            </h5>
+                            <ul class="list-unstyled">
+                                <li class="d-flex justify-content-between py-2 border-bottom" style="border-color: #6c757d !important; font-size: clamp(12px, 2.5vw, 14px);">
+                                    <strong style="color: #333;">Uber Black :</strong>
+                                    <span style="color: #333;" class="fw-bold">Temps réel</span>
+                                </li>
+                                <li class="d-flex justify-content-between py-2" style="font-size: clamp(12px, 2.5vw, 14px);">
+                                    <strong style="color: #333;">Bolt Premium :</strong>
+                                    <span style="color: #333;" class="fw-bold">Variable</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Tarifs Luxe -->
+                        <div style="background: linear-gradient(135deg, #fff3cd, #ffeeba); padding: 15px; border-radius: 10px; margin-bottom: 20px; border: 2px solid #FFD700;">
+                            <h5 style="color: #856404; margin-bottom: 15px; text-align: center; font-size: clamp(14px, 3vw, 16px);">
+                                ✨ Tarifs Luxe
+                            </h5>
+                            <ul class="list-unstyled">
+                                <li class="d-flex justify-content-between py-2 border-bottom" style="border-color: #FFD700 !important; font-size: clamp(12px, 2.5vw, 14px);">
+                                    <strong style="color: #856404;">Service Premium :</strong>
+                                    <span style="color: #856404;" class="fw-bold">90€/h</span>
+                                </li>
+                                <li class="d-flex justify-content-between py-2" style="font-size: clamp(12px, 2.5vw, 14px);">
+                                    <strong style="color: #856404;">Événements VIP :</strong>
+                                    <span style="color: #856404;" class="fw-bold">120€/h</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Mise à disposition -->
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                            <h5 style="color: #2c5f3f; margin-bottom: 15px; text-align: center; font-size: clamp(14px, 3vw, 16px);">
+                                🚗 Mise à Disposition
+                            </h5>
+                            <ul class="list-unstyled">
+                                <li class="d-flex justify-content-between py-2 border-bottom border-secondary" style="font-size: clamp(12px, 2.5vw, 14px);">
+                                    <strong style="color: #333;">Tarif horaire :</strong>
+                                    <span style="color: #333;" class="fw-bold">130€/h</span>
+                                </li>
+                                <li class="d-flex justify-content-between py-2 border-bottom border-secondary" style="font-size: clamp(12px, 2.5vw, 14px);">
+                                    <strong style="color: #333;">Demi-journée (4h) :</strong>
+                                    <span style="color: #333;" class="fw-bold">450€</span>
+                                </li>
+                                <li class="d-flex justify-content-between py-2" style="font-size: clamp(12px, 2.5vw, 14px);">
+                                    <strong style="color: #333;">Journée (8h) :</strong>
+                                    <span style="color: #333;" class="fw-bold">850€</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <a href="#reservation" class="btn" style="background: #6c757d; color: white; width: 100%; font-size: clamp(14px, 3vw, 16px);">
+                                <i class="fas fa-star me-2"></i>Choisir Premium
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bentley -->
+                <div class="col-12 col-lg-4" data-aos="fade-up" data-aos-delay="700">
+                    <div class="glass-card h-100" style="border: 3px solid #FFD700; position: relative; overflow: hidden; background: #ffffff; color: #333;">
+                        <!-- Badge VIP -->
+                        <div style="
+                            position: absolute;
+                            top: -5px;
+                            right: -5px;
+                            background: linear-gradient(135deg, #ff4444, #ff6b6b);
+                            color: white;
+                            padding: 4px 15px;
+                            border-radius: 12px;
+                            font-size: clamp(10px, 2vw, 12px);
+                            font-weight: bold;
+                            transform: rotate(12deg);
+                            box-shadow: 0 3px 10px rgba(255,68,68,0.3);
+                            z-index: 10;
+                        ">ULTRA LUXE</div>
+                        
+                        <div class="text-center mb-4">
+                            <div style="background: linear-gradient(135deg, #FFD700, #FFA500); color: #000; padding: clamp(8px, 2vw, 10px); border-radius: 25px; margin-bottom: 20px; font-weight: bold; font-size: clamp(12px, 2.5vw, 14px);">
+                                👑 EXCELLENCE
                             </div>
-                            <div class="col-md-4 text-center mb-3">
-                                <i class="fas fa-medal" style="color: #FFD700; font-size: 24px;"></i>
-                                <p class="mb-0 mt-2" style="font-size: 14px; color: #333;"><strong>Service d'exception</strong></p>
+                            <i class="fas fa-crown fa-3x mb-3" style="color: #FFD700;"></i>
+                            <h3 style="color: #333; font-size: clamp(18px, 4vw, 22px);">🏆 Bentley Continental GT</h3>
+                            <p style="color: #666; font-size: clamp(12px, 2.5vw, 14px);">Le summum du luxe automobile</p>
+                        </div>
+
+                        <!-- Tarifs Soirée -->
+                        <div style="background: linear-gradient(135deg, #2c5f3f, #4caf50); color: white; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                            <h5 style="color: white; margin-bottom: 15px; text-align: center; font-size: clamp(14px, 3vw, 16px);">
+                                🌙 Tarif Soirée VIP
+                            </h5>
+                            <div class="text-center">
+                                <div style="font-size: clamp(12px, 2.5vw, 14px); margin-bottom: 5px; color: white;">20h00 → 01h00 (5h)</div>
+                                <div style="font-size: clamp(20px, 5vw, 24px); font-weight: bold; color: white;">300€</div>
+                                <small style="opacity: 0.9; color: white; font-size: clamp(11px, 2vw, 13px);">Idéal pour soirées casino</small>
                             </div>
+                        </div>
+
+                        <!-- Mise à disposition -->
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                            <h5 style="color: #2c5f3f; margin-bottom: 15px; text-align: center; font-size: clamp(14px, 3vw, 16px);">
+                                🚗 Mise à Disposition
+                            </h5>
+                            <ul class="list-unstyled">
+                                <li class="d-flex justify-content-between py-2 border-bottom border-secondary" style="font-size: clamp(12px, 2.5vw, 14px);">
+                                    <strong style="color: #333;">Tarif horaire :</strong>
+                                    <span style="color: #856404;" class="fw-bold">100€/h</span>
+                                </li>
+                                <li class="d-flex justify-content-between py-2 border-bottom border-secondary" style="font-size: clamp(12px, 2.5vw, 14px);">
+                                    <strong style="color: #333;">Demi-journée (4h) :</strong>
+                                    <span style="color: #856404;" class="fw-bold">300€</span>
+                                </li>
+                                <li class="d-flex justify-content-between py-2" style="font-size: clamp(12px, 2.5vw, 14px);">
+                                    <strong style="color: #333;">Journée (8h) :</strong>
+                                    <span style="color: #856404;" class="fw-bold">500€</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Services inclus -->
+                        <div style="background: #fff3cd; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #FFD700;">
+                            <h6 style="color: #856404; margin-bottom: 10px; font-weight: bold; font-size: clamp(13px, 2.5vw, 15px);">✨ Services inclus :</h6>
+                            <ul style="font-size: clamp(11px, 2vw, 13px); color: #856404; margin: 0; padding-left: 15px; line-height: 1.4;">
+                                <li>🥂 Champagne offert</li>
+                                <li>🎩 Chauffeur en costume</li>
+                                <li>📱 WiFi premium</li>
+                                <li>🎵 Système audio haut de gamme</li>
+                            </ul>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <a href="#reservation" class="btn btn-luxury w-100" style="font-size: clamp(14px, 3vw, 16px);">
+                                <i class="fas fa-gem me-2"></i>Choisir Bentley
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-   
 
-    <!-- Réservation avec photo et longue liste -->
+            <!-- Note importante -->
+            <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="900">
+                <div style="
+                    background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05));
+                    border: 2px solid #FFD700;
+                    border-radius: 15px;
+                    padding: clamp(15px, 4vw, 25px);
+                    max-width: 900px;
+                    margin: 0 auto;
+                ">
+                    <h4 style="color: #2c5f3f; margin-bottom: 15px; font-size: clamp(18px, 4vw, 24px);">
+                        <i class="fas fa-shield-alt me-2"></i>Notre Engagement Qualité
+                    </h4>
+                    <p style="color: #333; margin-bottom: 10px; font-size: clamp(14px, 3vw, 16px); line-height: 1.6;">
+                        <strong style="color: #2c5f3f;">Transparence totale :</strong> 
+                        <span style="color: #333;">
+                            Tous nos tarifs sont fixes et sans surprise. 
+                            Aucun frais caché, aucune majoration de dernière minute.
+                        </span>
+                    </p>
+                    <div class="row mt-4">
+                        <div class="col-12 col-md-4 text-center mb-3">
+                            <i class="fas fa-check-circle" style="color: #4CAF50; font-size: clamp(20px, 4vw, 24px);"></i>
+                            <p class="mb-0 mt-2" style="font-size: clamp(12px, 2.5vw, 14px); color: #333;"><strong>Prix fixe annoncé</strong></p>
+                        </div>
+                        <div class="col-12 col-md-4 text-center mb-3">
+                            <i class="fas fa-clock" style="color: #2196F3; font-size: clamp(20px, 4vw, 24px);"></i>
+                            <p class="mb-0 mt-2" style="font-size: clamp(12px, 2.5vw, 14px); color: #333;"><strong>Ponctualité garantie</strong></p>
+                        </div>
+                        <div class="col-12 col-md-4 text-center mb-3">
+                            <i class="fas fa-medal" style="color: #FFD700; font-size: clamp(20px, 4vw, 24px);"></i>
+                            <p class="mb-0 mt-2" style="font-size: clamp(12px, 2.5vw, 14px); color: #333;"><strong>Service d'exception</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Réservation Mobile-Optimisée -->
     <section class="reservation-section" id="reservation">
         <div class="container">
             <div class="form-container">
                 <h2 class="form-title">Réservez Maintenant</h2>
                 
-                <!-- Photo placeholder -->
-                <div class="reservation-photo-placeholder">
-                    <img src="images/recrutement.png" alt="Services VTC" style="
-                                width: 100%;
-                                height: 310px;
-                                object-fit: cover;
-                                object-position: center;
-                                border-radius: 15px;">
-                    <div class="text-center">
-                        
-                    </div>
+                <!-- Photo optimisée -->
+                <div style="
+                    height: clamp(200px, 50vw, 300px);
+                    background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+                    border: 3px dashed #FFD700;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 15px;
+                    margin-bottom: 30px;
+                    overflow: hidden;
+                ">
+                    <img src="images/recrutement.png" alt="Services VTC e-Fast" style="
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center;
+                        border-radius: 12px;
+                    " loading="lazy">
                 </div>
 
                 <form id="reservationForm">
@@ -1802,7 +1704,7 @@
                         </div>
                     </div>
                     
-                    <div class="form-group form-full-width">
+                    <div class="form-group" style="grid-column: 1 / -1;">
                         <label for="message">Message / Demandes spéciales</label>
                         <textarea id="message" name="message" rows="4" placeholder="Décrivez vos besoins spécifiques, demandes particulières..."></textarea>
                     </div>
@@ -1813,7 +1715,7 @@
         </div>
     </section>
 
-    <!-- Section Recrutement -->
+    <!-- Section Recrutement Mobile-Optimisée -->
     <section id="recrutement" class="section-luxury">
         <div class="container">
             <div class="text-center mb-5">
@@ -1824,28 +1726,28 @@
             </div>
 
             <div class="row g-4">
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="glass-card h-100">
-                        <h4><i class="fas fa-user-tie me-3"></i>Chauffeur VTC Premium</h4>
-                        <ul class="mt-4">
+                        <h4 style="font-size: clamp(18px, 4vw, 22px);"><i class="fas fa-user-tie me-3"></i>Chauffeur VTC Premium</h4>
+                        <ul class="mt-4" style="font-size: clamp(13px, 2.5vw, 15px);">
                             <li>Permis B depuis plus de 3 ans</li>
-                            <li>Etre titulaire de la carte VTC</li>
+                            <li>Être titulaire de la carte VTC</li>
                             <li>Casier judiciaire vierge</li>
                             <li>Excellente présentation</li>
                             <li>Maîtrise du français et anglais appréciée</li>
                             <li>Connaissance de la Côte d'Azur</li>
                         </ul>
                         <div class="mt-4">
-                            <strong style="color: #FFD700;">Avantages:</strong>
-                            <p>Véhicules premium fournis avec assurance et entretien • Formations • Revenus attractifs</p>
+                            <strong style="color: #FFD700; font-size: clamp(14px, 3vw, 16px);">Avantages:</strong>
+                            <p style="font-size: clamp(13px, 2.5vw, 15px);">Véhicules premium fournis avec assurance et entretien • Formations • Revenus attractifs</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="500">
                     <div class="glass-card h-100">
-                        <h4><i class="fas fa-venus me-3" style="color: #ff1493;"></i>Chauffeur Girly-Car</h4>
-                        <ul class="mt-4">
+                        <h4 style="font-size: clamp(18px, 4vw, 22px);"><i class="fas fa-venus me-3" style="color: #ff1493;"></i>Chauffeur Girly-Car</h4>
+                        <ul class="mt-4" style="font-size: clamp(13px, 2.5vw, 15px);">
                             <li>Conductrices femmes ou hommes vertueux</li>
                             <li>Service spécialisé couples/femmes/enfants</li>
                             <li>Approche bienveillante et sécurisante</li>
@@ -1853,38 +1755,43 @@
                             <li>Horaires flexibles</li>
                         </ul>
                         <div class="mt-4">
-                            <strong style="color: #FFD700;">Mission:</strong>
-                            <p>Offrir un service VTC dans un environnement sûr et confortable</p>
-                            <p>Utilisation de votre propre véhicule</p>
+                            <strong style="color: #FFD700; font-size: clamp(14px, 3vw, 16px);">Mission:</strong>
+                            <p style="font-size: clamp(13px, 2.5vw, 15px);">Offrir un service VTC dans un environnement sûr et confortable</p>
+                            <p style="font-size: clamp(13px, 2.5vw, 15px);">Utilisation de votre propre véhicule</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="row mt-5 justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-12 col-lg-8">
                     <div class="glass-card text-center">
-                        <h4 class="mb-4">Candidature</h4>
-                        <p>Envoyez votre CV et lettre de motivation à :</p>
-                        <a href="mailto:alain.efastvtc@gmail.com" class="btn btn-luxury btn-lg">
+                        <h4 class="mb-4" style="font-size: clamp(18px, 4vw, 22px);">Candidature</h4>
+                        <p style="font-size: clamp(14px, 2.5vw, 16px);">Envoyez votre CV et lettre de motivation à :</p>
+                        <a href="mailto:alain.efastvtc@gmail.com" class="btn btn-luxury btn-lg mb-3" style="font-size: clamp(14px, 3vw, 16px);">
                             <i class="fas fa-envelope me-2"></i>alain.efastvtc@gmail.com
                         </a>
-                        <p class="mt-3">Ou appelez-nous au : <strong>04 93 46 43 66</strong></p>
+                        <p class="mt-3" style="font-size: clamp(14px, 2.5vw, 16px);">Ou appelez-nous au : <strong><a href="tel:0493464366" style="color: #FFD700;">04 93 46 43 66</a></strong></p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section Mobile-Optimisée -->
     <section id="contact" class="section-luxury parallax-section">
-        <div class="image-placeholder parallax-bg-image" style="height: 100%; display: flex; align-items: center; justify-content: center;">
-            <div class="change-me" style="font-size: 1.5rem; text-align: center;">
-                <img src="images/banniere cannes.png" alt="Côte d'Azur" class="hero-bg-image">
-            </div>
-        </div>
-        
-        <div class="parallax-overlay"></div>
+        <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('images/banniere cannes.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            z-index: -1;
+        "></div>
         
         <div class="container position-relative">
             <div class="text-center mb-5">
@@ -1895,40 +1802,40 @@
             </div>
 
             <div class="row justify-content-center g-4">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="glass-card text-center h-100">
                         <div class="mb-4">
                             <i class="fas fa-phone fa-3x mb-3" style="color: #FFD700;"></i>
-                            <h5>Téléphone</h5>
-                            <p class="mb-0">Service 24/7</p>
+                            <h5 style="font-size: clamp(16px, 3vw, 18px);">Téléphone</h5>
+                            <p class="mb-0" style="font-size: clamp(13px, 2.5vw, 15px);">Service 24/7</p>
                         </div>
-                        <a href="tel:0493464366" class="btn btn-luxury">
+                        <a href="tel:0493464366" class="btn btn-luxury" style="font-size: clamp(14px, 3vw, 16px);">
                             <i class="fas fa-phone me-2"></i>04 93 46 43 66
                         </a>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
                     <div class="glass-card text-center h-100">
                         <div class="mb-4">
                             <i class="fas fa-envelope fa-3x mb-3" style="color: #FFD700;"></i>
-                            <h5>Email</h5>
-                            <p class="mb-0">Réponse rapide garantie</p>
+                            <h5 style="font-size: clamp(16px, 3vw, 18px);">Email</h5>
+                            <p class="mb-0" style="font-size: clamp(13px, 2.5vw, 15px);">Réponse rapide garantie</p>
                         </div>
-                        <a href="mailto:alain.efastvtc@gmail.com" class="btn btn-luxury">
+                        <a href="mailto:alain.efastvtc@gmail.com" class="btn btn-luxury" style="font-size: clamp(14px, 3vw, 16px);">
                             <i class="fas fa-envelope me-2"></i>Nous écrire
                         </a>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
+                <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="700">
                     <div class="glass-card text-center h-100">
                         <div class="mb-4">
                             <i class="fas fa-map-marker-alt fa-3x mb-3" style="color: #FFD700;"></i>
-                            <h5>Zone de Service</h5>
-                            <p class="mb-0">Côte d'Azur & Monaco</p>
+                            <h5 style="font-size: clamp(16px, 3vw, 18px);">Zone de Service</h5>
+                            <p class="mb-0" style="font-size: clamp(13px, 2.5vw, 15px);">Côte d'Azur & Monaco</p>
                         </div>
-                        <div class="btn btn-luxury">
+                        <div class="btn btn-luxury" style="font-size: clamp(14px, 3vw, 16px);">
                             <i class="fas fa-map-marker-alt me-2"></i>Côte d'Azur
                         </div>
                     </div>
@@ -1937,27 +1844,29 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer Mobile-Optimisé -->
     <footer class="py-5" style="background: var(--luxury-dark);">
         <div class="container text-center">
             <div class="mb-4">
-                <h3 class="navbar-brand mb-3">
+                <h3 class="navbar-brand mb-3" style="font-size: clamp(1.5rem, 4vw, 2rem);">
                     <i class="fas fa-car-side me-2"></i>EFast-VTC
                 </h3>
-                <p class="lead">Service Premium 100% Électrique & Écologique</p>
+                <p class="lead" style="font-size: clamp(14px, 3vw, 18px);">Service Premium 100% Électrique & Écologique</p>
             </div>
             <div class="row justify-content-center mb-4">
                 <div class="col-auto">
-                    <a href="tel:0493464366" class="btn btn-outline-light me-3">
-                        <i class="fas fa-phone me-2"></i>04 93 46 43 66
-                    </a>
-                    <a href="mailto:alain.efastvtc@gmail.com" class="btn btn-outline-light">
-                        <i class="fas fa-envelope me-2"></i>Contact Email
-                    </a>
+                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                        <a href="tel:0493464366" class="btn btn-outline-light" style="font-size: clamp(14px, 2.5vw, 16px);">
+                            <i class="fas fa-phone me-2"></i>04 93 46 43 66
+                        </a>
+                        <a href="mailto:alain.efastvtc@gmail.com" class="btn btn-outline-light" style="font-size: clamp(14px, 2.5vw, 16px);">
+                            <i class="fas fa-envelope me-2"></i>Contact Email
+                        </a>
+                    </div>
                 </div>
             </div>
             <hr style="border-color: var(--glass-border);">
-            <p class="mb-0" style="color: rgba(255,255,255,0.7);">
+            <p class="mb-0" style="color: rgba(255,255,255,0.7); font-size: clamp(12px, 2vw, 14px);">
                 © 2025 EFast-VTC. Tous droits réservés. | Luxe • Écologie • Excellence
             </p>
         </div>
@@ -1969,32 +1878,36 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 
     <script>
-        // Initialize AOS
+        // Initialize AOS avec des paramètres optimisés mobile
         AOS.init({
-            duration: 1000,
+            duration: 800,
             easing: 'ease-out-cubic',
             once: true,
-            offset: 100
+            offset: 50,
+            disable: window.innerWidth < 768 ? 'mobile' : false
         });
 
-        // Particles.js configuration avec or brillant
+        // Particles.js configuration optimisée mobile
         particlesJS('particles-js', {
             particles: {
-                number: { value: 50, density: { enable: true, value_area: 800 } },
+                number: { 
+                    value: window.innerWidth < 768 ? 25 : 50, 
+                    density: { enable: true, value_area: 800 } 
+                },
                 color: { value: '#FFD700' },
                 shape: { type: 'circle' },
-                opacity: { value: 0.3, random: true },
-                size: { value: 3, random: true },
+                opacity: { value: 0.2, random: true },
+                size: { value: window.innerWidth < 768 ? 2 : 3, random: true },
                 line_linked: {
                     enable: true,
-                    distance: 150,
+                    distance: window.innerWidth < 768 ? 100 : 150,
                     color: '#FFD700',
-                    opacity: 0.2,
+                    opacity: 0.15,
                     width: 1
                 },
                 move: {
                     enable: true,
-                    speed: 2,
+                    speed: window.innerWidth < 768 ? 1 : 2,
                     direction: 'none',
                     random: false,
                     straight: false,
@@ -2005,13 +1918,13 @@
             interactivity: {
                 detect_on: 'canvas',
                 events: {
-                    onhover: { enable: true, mode: 'repulse' },
+                    onhover: { enable: !(/Mobi|Android/i.test(navigator.userAgent)), mode: 'repulse' },
                     onclick: { enable: true, mode: 'push' },
                     resize: true
                 },
                 modes: {
-                    repulse: { distance: 100, duration: 0.4 },
-                    push: { particles_nb: 4 }
+                    repulse: { distance: 80, duration: 0.4 },
+                    push: { particles_nb: 2 }
                 }
             },
             retina_detect: true
@@ -2020,27 +1933,27 @@
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar-luxury');
-            if (window.scrollY > 100) {
+            if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
         });
 
-        // Counter animation
+        // Counter animation optimisée mobile
         function animateCounters() {
             const counters = document.querySelectorAll('[data-counter]');
             
             counters.forEach(counter => {
                 const target = parseInt(counter.getAttribute('data-counter'));
                 let current = 0;
-                const increment = target / 50;
+                const increment = target / 30; // Réduit sur mobile
                 
                 const updateCounter = () => {
                     if (current < target) {
                         current += increment;
                         counter.textContent = Math.floor(current) + (target === 100 ? '%' : target < 0 ? '%' : '');
-                        setTimeout(updateCounter, 50);
+                        setTimeout(updateCounter, 80);
                     } else {
                         counter.textContent = target + (target === 100 ? '%' : target < 0 ? '%' : '');
                     }
@@ -2050,7 +1963,7 @@
             });
         }
 
-        // Trigger counter animation when section is visible
+        // Trigger counter animation
         const impactSection = document.querySelector('.impact-counter').closest('.section-luxury');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -2059,16 +1972,14 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.3 });
 
         if (impactSection) {
             observer.observe(impactSection);
         }
 
-        // Form submission handler
-       // JavaScript à remplacer dans votre index.html
-        // Remplacez tout le gestionnaire de formulaire existant par ce code
-
+        // GESTIONNAIRE DE FORMULAIRE MOBILE-OPTIMISÉ
+        
         // Fonction de validation email
         function validerEmail(email) {
             const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -2082,9 +1993,8 @@
             return regex.test(tel);
         }
 
-        // Fonction d'affichage des messages de succès
+        // Messages de succès/erreur optimisés mobile
         function afficherSucces(message) {
-            // Supprimer les anciens messages
             const ancienMessage = document.querySelector('.message-confirmation');
             if (ancienMessage) {
                 ancienMessage.remove();
@@ -2095,46 +2005,44 @@
             successDiv.style.cssText = `
                 background: linear-gradient(135deg, #4CAF50, #66BB6A);
                 color: white;
-                padding: 25px;
+                padding: clamp(20px, 5vw, 30px);
                 border-radius: 15px;
                 text-align: center;
                 margin: 20px 0;
                 animation: slideInFromTop 0.5s ease;
                 box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+                font-size: clamp(14px, 3vw, 16px);
+                position: relative;
+                z-index: 1000;
             `;
             
             successDiv.innerHTML = `
-                <div style="font-size: 24px; margin-bottom: 15px;">
+                <div style="font-size: clamp(20px, 5vw, 24px); margin-bottom: 15px;">
                     <i class="fas fa-check-circle"></i>
                 </div>
-                <h4 style="margin: 0 0 15px 0; font-size: 22px;">
-                    ✅ Réservation envoyée avec succès !
+                <h4 style="margin: 0 0 15px 0; font-size: clamp(18px, 4vw, 22px);">
+                    ✅ Réservation envoyée !
                 </h4>
-                <p style="margin: 10px 0; font-size: 16px;">${message}</p>
+                <p style="margin: 10px 0;">${message}</p>
                 <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 10px; margin-top: 15px;">
-                    <p style="margin: 5px 0;"><strong>📞 Nous vous contacterons rapidement au :</strong></p>
-                    <p style="margin: 5px 0; font-size: 18px; font-weight: bold;">${document.getElementById('telephone').value}</p>
+                    <p style="margin: 5px 0;"><strong>📞 Contact :</strong></p>
+                    <p style="margin: 5px 0; font-weight: bold;">${document.getElementById('telephone').value}</p>
                 </div>
-                <small style="opacity: 0.9;">Un email de confirmation a été envoyé à votre adresse</small>
             `;
             
             const form = document.getElementById('reservationForm');
             form.parentNode.insertBefore(successDiv, form);
             
-            // Scroll vers le message
             successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
             
-            // Supprimer le message après 15 secondes
             setTimeout(() => {
                 if (successDiv.parentNode) {
                     successDiv.remove();
                 }
-            }, 15000);
+            }, 12000);
         }
 
-        // Fonction d'affichage des messages d'erreur
         function afficherErreur(message) {
-            // Supprimer les anciens messages
             const ancienMessage = document.querySelector('.message-confirmation');
             if (ancienMessage) {
                 ancienMessage.remove();
@@ -2145,41 +2053,36 @@
             errorDiv.style.cssText = `
                 background: linear-gradient(135deg, #f44336, #ef5350);
                 color: white;
-                padding: 25px;
+                padding: clamp(20px, 5vw, 30px);
                 border-radius: 15px;
                 text-align: center;
                 margin: 20px 0;
                 animation: slideInFromTop 0.5s ease;
                 box-shadow: 0 10px 30px rgba(244, 67, 54, 0.3);
+                font-size: clamp(14px, 3vw, 16px);
+                position: relative;
+                z-index: 1000;
             `;
             
             errorDiv.innerHTML = `
-                <div style="font-size: 24px; margin-bottom: 15px;">
+                <div style="font-size: clamp(20px, 5vw, 24px); margin-bottom: 15px;">
                     <i class="fas fa-exclamation-triangle"></i>
                 </div>
-                <h4 style="margin: 0 0 15px 0;">❌ Erreur lors de l'envoi</h4>
+                <h4 style="margin: 0 0 15px 0; font-size: clamp(18px, 4vw, 22px);">❌ Erreur</h4>
                 <p style="margin: 10px 0;">${message}</p>
                 <div style="margin-top: 20px;">
                     <a href="tel:0493464366" style="
                         background: white;
                         color: #f44336;
-                        padding: 10px 20px;
+                        padding: 12px 20px;
                         border-radius: 25px;
                         text-decoration: none;
                         font-weight: bold;
-                        margin-right: 10px;
+                        margin: 5px;
+                        display: inline-block;
+                        font-size: clamp(14px, 3vw, 16px);
                     ">
                         📞 04 93 46 43 66
-                    </a>
-                    <a href="mailto:alain.efastvtc@gmail.com" style="
-                        background: rgba(255,255,255,0.2);
-                        color: white;
-                        padding: 10px 20px;
-                        border-radius: 25px;
-                        text-decoration: none;
-                        font-weight: bold;
-                    ">
-                        📧 Email direct
                     </a>
                 </div>
             `;
@@ -2187,80 +2090,42 @@
             const form = document.getElementById('reservationForm');
             form.parentNode.insertBefore(errorDiv, form);
             
-            // Scroll vers le message
             errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
             
-            // Supprimer le message après 10 secondes
             setTimeout(() => {
                 if (errorDiv.parentNode) {
                     errorDiv.remove();
                 }
-            }, 10000);
+            }, 8000);
         }
 
-        // Fonction pour mettre en évidence les champs avec erreur
+        // Marquage des erreurs
         function marquerErreurChamp(champId, erreur = true) {
             const champ = document.getElementById(champId);
             if (champ) {
                 if (erreur) {
                     champ.style.borderColor = '#ff4444';
                     champ.style.backgroundColor = 'rgba(255, 68, 68, 0.1)';
+                    champ.style.transform = 'scale(1.02)';
                 } else {
                     champ.style.borderColor = '#e8f4f8';
                     champ.style.backgroundColor = '';
+                    champ.style.transform = 'scale(1)';
                 }
             }
-        }
-
-        // Validation en temps réel des champs
-        function configurerValidationTempsReel() {
-            // Email
-            document.getElementById('email').addEventListener('blur', function() {
-                if (this.value && !validerEmail(this.value)) {
-                    marquerErreurChamp('email', true);
-                } else {
-                    marquerErreurChamp('email', false);
-                }
-            });
-
-            // Téléphone
-            document.getElementById('telephone').addEventListener('blur', function() {
-                if (this.value && !validerTelephone(this.value)) {
-                    marquerErreurChamp('telephone', true);
-                } else {
-                    marquerErreurChamp('telephone', false);
-                }
-            });
-
-            // Date
-            document.getElementById('date').addEventListener('change', function() {
-                const selectedDate = new Date(this.value);
-                const today = new Date();
-                today.setHours(0, 0, 0, 0);
-                
-                if (selectedDate < today) {
-                    marquerErreurChamp('date', true);
-                } else {
-                    marquerErreurChamp('date', false);
-                }
-            });
         }
 
         // GESTIONNAIRE PRINCIPAL DU FORMULAIRE
         document.getElementById('reservationForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            console.log('Soumission du formulaire de réservation...');
-            
-            // Récupération des données du formulaire
             const formData = new FormData(this);
             const data = Object.fromEntries(formData);
             
-            // Validation côté client
+            // Validation
             const champsObligatoires = ['nom', 'prenom', 'telephone', 'email', 'service', 'date', 'heure', 'depart', 'arrivee'];
             let erreurs = [];
             
-            // Vérifier les champs obligatoires
             champsObligatoires.forEach(champ => {
                 if (!data[champ] || data[champ].trim() === '') {
                     erreurs.push(`Le champ "${champ}" est obligatoire`);
@@ -2270,50 +2135,38 @@
                 }
             });
             
-            // Validation email
             if (data.email && !validerEmail(data.email)) {
-                erreurs.push('Adresse email invalide');
+                erreurs.push('Email invalide');
                 marquerErreurChamp('email', true);
             }
             
-            // Validation téléphone
             if (data.telephone && !validerTelephone(data.telephone)) {
-                erreurs.push('Numéro de téléphone invalide (format français attendu)');
+                erreurs.push('Téléphone invalide');
                 marquerErreurChamp('telephone', true);
             }
             
-            // Validation date
             if (data.date) {
                 const selectedDate = new Date(data.date);
                 const today = new Date();
                 today.setHours(0, 0, 0, 0);
                 
                 if (selectedDate < today) {
-                    erreurs.push('La date de réservation ne peut pas être dans le passé');
+                    erreurs.push('Date invalide');
                     marquerErreurChamp('date', true);
                 }
             }
             
-            // Si des erreurs, les afficher et arrêter
             if (erreurs.length > 0) {
-                afficherErreur('Veuillez corriger les erreurs suivantes : ' + erreurs.join(', '));
-                // Scroll vers le premier champ avec erreur
-                const premierChampErreur = champsObligatoires.find(champ => !data[champ] || data[champ].trim() === '');
-                if (premierChampErreur) {
-                    document.getElementById(premierChampErreur).scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    document.getElementById(premierChampErreur).focus();
-                }
+                afficherErreur('Veuillez corriger : ' + erreurs.join(', '));
                 return;
             }
             
-            // Modifier le bouton pendant l'envoi
+            // Envoi
             const submitBtn = document.querySelector('.submit-btn');
             const texteOriginal = submitBtn.innerHTML;
-            submitBtn.innerHTML = '⏳ Envoi en cours...';
+            submitBtn.innerHTML = '⏳ Envoi...';
             submitBtn.disabled = true;
-            submitBtn.style.opacity = '0.7';
             
-            // Envoi vers le script PHP
             fetch('send_reservation.php', {
                 method: 'POST',
                 headers: {
@@ -2321,46 +2174,32 @@
                 },
                 body: JSON.stringify(data)
             })
-            .then(response => {
-                console.log('Réponse reçue:', response.status);
-                return response.json();
-            })
+            .then(response => response.json())
             .then(result => {
-                console.log('Résultat:', result);
-                
                 if (result.success) {
-                    // Succès
                     afficherSucces(result.message);
-                    
-                    // Réinitialiser le formulaire
                     this.reset();
-                    
-                    // Remettre la date minimum
                     document.getElementById('date').min = new Date().toISOString().split('T')[0];
-                    
                 } else {
-                    // Erreur du serveur
-                    afficherErreur(result.message || 'Une erreur inattendue s\'est produite');
+                    afficherErreur(result.message || 'Erreur inconnue');
                 }
             })
             .catch(error => {
-                console.error('Erreur lors de l\'envoi:', error);
-                afficherErreur('Erreur de connexion. Vérifiez votre connexion internet et réessayez.');
+                console.error('Erreur:', error);
+                afficherErreur('Problème de connexion');
             })
             .finally(() => {
-                // Restaurer le bouton
                 submitBtn.innerHTML = texteOriginal;
                 submitBtn.disabled = false;
-                submitBtn.style.opacity = '1';
             });
         });
 
-        // CSS pour les animations
+        // CSS animations
         const style = document.createElement('style');
         style.textContent = `
             @keyframes slideInFromTop {
                 from {
-                    transform: translateY(-30px);
+                    transform: translateY(-20px);
                     opacity: 0;
                 }
                 to {
@@ -2368,26 +2207,63 @@
                     opacity: 1;
                 }
             }
-            
-            .form-group input:focus,
-            .form-group select:focus,
-            .form-group textarea:focus {
-                transform: scale(1.02);
-                transition: all 0.3s ease;
-            }
         `;
         document.head.appendChild(style);
 
-        // Configurer la validation en temps réel au chargement de la page
+        // Initialisation
         document.addEventListener('DOMContentLoaded', function() {
-            configurerValidationTempsReel();
-            
-            // Définir la date minimum à aujourd'hui
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('date').min = today;
             
-            console.log('Formulaire de réservation e-Fast VTC initialisé');
+            // Fermeture automatique du menu mobile
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                        bsCollapse.hide();
+                    }
+                });
+            });
+            
+            console.log('e-Fast VTC mobile optimisé initialisé ✅');
         });
+
+        // Smooth scrolling pour tous les liens d'ancrage
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = window.innerWidth < 768 ? 80 : 100;
+                    const elementPosition = target.offsetTop;
+                    const offsetPosition = elementPosition - offset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Performance: Lazy loading des images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
     </script>
 
 </body>
